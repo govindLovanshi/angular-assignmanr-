@@ -1,0 +1,397 @@
+<div class="row">
+  <div class="col-7">
+    <div class="card productCards" style="width: 43rem">
+      <div class="card-header">
+        <h5>{{ sercice }}</h5>
+      </div>
+      <div class="boxforCards">
+        <div class="card-body box1forCards">
+          <p class="card-title" *ngFor="let card of cardBoz1s">{{ card }}</p>
+        </div>
+        <div>
+          <p class="box2forCards">
+            {{ serviceCharges }} € <br />
+            per month
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="nameoftopic">
+      <h4>{{ nameOfTopic }}</h4>
+    </div>
+
+    <div class="card productCards" style="width: 43rem">
+      <div>
+        <div class="row card-header switchTrue">
+          <div class="box1forSwitch col-8">
+            <h5>{{ finanaceLeyWay }}</h5>
+          </div>
+          <div class="box2forSwitch col-3">
+            No <mat-slide-toggle (click)="onSwitchOne()">And</mat-slide-toggle>
+          </div>
+        </div>
+        <div *ngIf="hide" class="card-body boxforCards row">
+          <p class="box1forCards col-6">
+            {{ overDraft }}
+          </p>
+          <p class="box2forCards col-5">
+            {{ interestRate }}% <br />{{ intersteYear }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="nameoftopic">
+      <h4>{{ card }}</h4>
+    </div>
+    <!-- card starts  -->
+    <div class="card productCards" style="width: 43rem">
+      <div>
+        <div class="row card-header switchTrue">
+          <div class="box1forSwitch col-8">
+            <h5>{{ additionCard }}</h5>
+          </div>
+          <div class="box2forSwitch col-3">
+            No <mat-slide-toggle (click)="onSwitchTwo()">And</mat-slide-toggle>
+          </div>
+        </div>
+        <div *ngIf="hidden2" class="card-body boxforCards">
+          <div>
+            <!-- first card  -->
+            <div class="form-check" (change)="onChangeCardType($event)">
+              <div>
+                <input
+                  class="form-check-input"
+                  value="Deutsche Bank Card Plus (debit card)"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                />
+                <div class="cardNameWithPrice">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    {{ DeutscheCard }}
+                  </label>
+                  <p class="">{{ detuchBankYear }} <br />per Year</p>
+                </div>
+                <h6>
+                  {{ deutschAdvanatage }}
+                </h6>
+              </div>
+              <div >
+                <p>{{ debitCard }}</p>
+                <p>
+                  {{ point }}
+                </p>
+                <p>{{ tranSprenrtSecure }}</p>
+              </div>
+            </div>
+            <hr />
+            <!-- second card  -->
+            <div class="form-check" (change)="onChangeCardType($event)">
+              <div>
+                <input
+                  class="form-check-input"
+                  value="MasterCard Standard (credit card)"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                />
+                <div class="cardNameWithPrice">
+                  <label
+                    class="form-check-label"
+                    for="flexRadioDefault2"
+                    value="mastercard"
+                  >
+                    {{ masterCard }}
+                  </label>
+                  <p>{{ masterCardYear }} <br />per Year</p>
+                </div>
+                <h6>{{ theDay }}</h6>
+              </div>
+              <div >
+                <p>
+                  {{ point }}
+                </p>
+                <p>{{ CardApp }}</p>
+                
+              </div>
+            </div>
+            <hr />
+            <!-- third card  -->
+            <div class="form-check" (change)="onChangeCardType($event)">
+              <div>
+                <input
+                  class="form-check-input"
+                  value="MasterCard Gold (credit card)"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                />
+                <div class="cardNameWithPrice">
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    {{ masteGold }}
+                  </label>
+                  <p>{{ masterCardGold }} <br />per Year</p>
+                </div>
+                <h6>{{ relataibale }}</h6>
+              </div>
+              <div >
+                <p>
+                  {{ point }}
+                </p>
+                <p>Transparent and more secure with 'My Card' app</p>
+                <p>Transparent and more secure with 'My Card' app</p>
+              </div>
+            </div>
+            <hr />
+            <!-- fourth card  -->
+            <div class="form-check" (change)="onChangeCardType($event)">
+              <div>
+                <input
+                  class="form-check-input"
+                  value="MasterCard Travel (credit card)"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <div class="cardNameWithPrice">
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    {{ masterCrdtrvel }}
+                  </label>
+                  <p>{{ mastercardTravel }} <br />per Year</p>
+                </div>
+                <h6>{{ masterCrsdStron }}</h6>
+              </div>
+              <div >
+                <p>
+                  {{ point }}
+                </p>
+                <p>
+                  {{ point }}
+                </p>
+                <p>
+                  {{ point }}
+                </p>
+              </div>
+            </div>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- card ends  -->
+    <div class="nameoftopic">
+      <h4>Personal Information</h4>
+    </div>
+
+    <div class="body-card">
+      <div class="my-personal-container">
+        <form
+          [formGroup]="registerForm"
+          (ngSubmit)="onSubmit()"
+          class="personalInformation"
+        >
+          <div class="dropdown form-group">
+            <select
+              class="form-control"
+              style="width: 39rem"
+              class="inputFields form-control"
+              name="property"
+              formControlName="property"
+              [ngClass]="{ 'is-invalid': submitted && foo['property'].errors }"
+            >
+              <option *ngFor="let area of rentalArea">{{ area }}</option>
+            </select>
+            <div
+              *ngIf="submitted && foo['property'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="foo['property'].errors['required']">
+                property is required!
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <input
+                type="text"
+                placeholder="Financing rate month"
+                name="Financing"
+                class="inputFields form-control"
+                name="Financing"
+                formControlName="Financing"
+                required
+                [ngClass]="{
+                  'is-invalid': submitted && foo['Financing'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && foo['Financing'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['Financing'].errors['required']">
+                  Financing rate month!
+                </div>
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Adition costs month"
+                name="aditionCost"
+                class="inputFields form-control"
+                name="aditionCost"
+                formControlName="aditionCost"
+                [ngClass]="{
+                  'is-invalid': submitted && foo['aditionCost'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && foo['aditionCost'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['aditionCost'].errors['required']">
+                  Adition costs month!
+                </div>
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Net Income month"
+                name="netIncome"
+                class="inputFields form-control"
+                name="netIncome"
+                formControlName="netIncome"
+                [ngClass]="{
+                  'is-invalid': submitted && foo['netIncome'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && foo['netIncome'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['netIncome'].errors['required']">
+                  Net Income month!
+                </div>
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="private headlth insurance month"
+                name="privateHelath"
+                class="inputFields form-control"
+                name="privateHelath"
+                formControlName="privateHelath"
+                [ngClass]="{
+                  'is-invalid': submitted && foo['privateHelath'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && foo['privateHelath'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['privateHelath'].errors['required']">
+                  private headlth insurance month!
+                </div>
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Number of dependent children"
+                name="numberOfDependent"
+                class="inputFields form-control"
+                name="numberOfDependent"
+                formControlName="numberOfDependent"
+                [ngClass]="{
+                  'is-invalid': submitted && foo['numberOfDependent'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && foo['numberOfDependent'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['numberOfDependent'].errors['required']">
+                  Number of dependent children!
+                </div>
+              </div>
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Maintenance obligation month"
+                name="maintenance"
+                class="inputFields form-control"
+                name="maintenance"
+                formControlName="maintenance"
+                [ngClass]="{
+                  'is-invalid': submitted && foo['maintenance'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && foo['maintenance'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['maintenance'].errors['required']">
+                  Maintenance obligation month!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div></div>
+          <div class="mt-3">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckChecked"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                I use this account as a payroll account
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckChecked"
+              />
+              <label class="form-check-label" for="flexCheckChecked">
+                I don't use this account as a payroll account, but I expect to
+                receive other regular payments
+              </label>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+              <!-- button  start -->
+              <!-- <div class="row">
+                <div class="form-group d-flex justify-content-center px-4">
+                  <button type="button" class="btn btn-danger" (click)="onRetun()">
+                    Return
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-success me-2"
+                    (click)="onSubmit()"
+                  >
+                    Futher
+                  </button>
+                </div>
+              </div> -->
+              <!-- button end -->
+
+  </div>
+  <div class="col-4">
+    <app-overview></app-overview>
+  </div>
+</div>

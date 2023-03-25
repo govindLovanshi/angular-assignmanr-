@@ -1,0 +1,26 @@
+.overView-container{
+   margin-left: 10.4%;
+   margin-top: 4%;
+   margin-bottom: 3em;
+   position: sticky;
+}
+
+.chargesOfAccount{
+    display: flex;
+}
+
+.box-2{
+    margin-left: 60%;
+}
+
+.companyDetails{
+    display: inline;
+}
+
+/* .companyDetails :nth-child(){
+    margin-left: 3%;
+} */
+.center {
+    margin-left: 50%;
+    transform: translate(-50%,0);
+}

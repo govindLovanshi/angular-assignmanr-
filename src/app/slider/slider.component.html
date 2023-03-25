@@ -1,0 +1,115 @@
+<!-- 
+<mat-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup" >
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" >
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" >
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your city</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper> -->
+
+<div class="maian-stepper-conatiner ">
+    <mat-stepper labelPosition="bottom" #stepper >
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>
+          </ng-template>
+
+          <app-client  ></app-client>
+          
+          <div class="maianDivFor">
+            <div class="nextandEndButton text-center" >
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperNext class="button" >Further</button>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup" >
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Product Data</ng-template>
+            
+            <app-product ></app-product>
+            
+            <div class="nextandEndButton text-center">
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperPrevious  >Return</button>
+              <button mat-button matStepperNext (click)="onSubmit()" >Further</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup" >
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Legal</ng-template>
+           
+            <app-personal ></app-personal>
+           
+            <div class="nextandEndButton text-center">
+              <p>Go to a different step to see the error state</p>
+              <button mat-button matStepperPrevious>Return</button>
+              <button mat-button matStepperNext (click)="onSubmit()" >Further</button>
+            </div>
+          </form>
+        </mat-step>
+      <mat-step [stepControl]="fourthFormGroup">
+        <form [formGroup]="fourthFormGroup">
+          <ng-template matStepLabel>Activate</ng-template>
+          <div class="nextandEndButton text-center"> 
+            <p>Go to a different step to see the error state</p>
+            <button mat-button matStepperPrevious>Return</button>
+            <button mat-button matStepperNext>Further</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>My account</ng-template>
+        <p>You are now done.</p>
+        <div class="nextandEndButton text-center">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  </div>

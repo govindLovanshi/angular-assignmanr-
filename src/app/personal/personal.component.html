@@ -1,0 +1,302 @@
+<div class="row">
+  <div class="col-7">
+    <div class="titleName">
+      <h3>{{ title }}</h3>
+      <p>{{ phara }}</p>
+    </div>
+
+    <div class="form-container border-form">
+      <div class="body-card">
+        <form
+          [formGroup]="registerForm"
+          (ngSubmit)="onSubmit()"
+          class="personalInformation"
+          border
+          border-1
+        >
+          <div>
+            <mat-radio-group aria-label="Select an option">
+              <span *ngFor="let gender from myGender">
+                <input type="radio" id="{{gender.id}}" value="{{gender.value}}" name="gender"  />
+                <label for="male" >{{gender.value}}</label>
+              </span>
+            </mat-radio-group>
+          </div>
+          <div>
+            <div class="form-group col-5">
+              <label>{{ name }}</label>
+              <input
+                type="text"
+                class="form-control"
+                style="width: 43rem"
+                placeholder="First Name"
+                formControlName="firstName"
+                [ngClass]="{
+                  'is-invalid': submitted && foo['firstName'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && foo['firstName'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['firstName'].errors['required']">
+                  {{ name! }}
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-5">
+              <label>{{ lastName }}</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Last Name"
+                style="width: 43rem"
+                formControlName="lastName"
+                [ngClass]="{
+                  'is-invalid': submitted && foo['lastName'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && foo['lastName'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['lastName'].errors['required']">
+                  {{ lastName! }}
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-5">
+              <label>{{ bName }}</label>
+              <input
+                type="text"
+                class="form-control"
+                style="width: 43rem"
+                placeholder="Birth name(optional)"
+                formControlName="birthName"
+                [ngClass]="{
+                  'is-invalid': submitted && foo['lastName'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && foo['birthName'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['birthName'].errors['required']">
+                  {{ bName! }}
+                </div>
+              </div>
+            </div>
+            <div class="dropdown form-group">
+              <label>{{ MaterialStatus }}</label>
+              <select
+                class="form-control"
+                style="width: 43rem"
+                class="inputFields form-control"
+                name="Material"
+                formControlName="Material"
+                [ngClass]="{
+                  'is-invalid': submitted && foo['Material'].errors
+                }"
+              >
+                <option *ngFor="let status of arrayMaterialStatus">
+                  {{ status }}
+                </option>
+              </select>
+              <div
+                *ngIf="submitted && foo['Material'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['Material'].errors['required']">
+                  {{ MaterialStatus! }}
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-5">
+              <label>Date of Birth</label>
+              <input
+                type="text"
+                class="form-control"
+                style="width: 43rem"
+                placeholder="Birth name(optional)"
+                formControlName="dateOfBirth"
+                [ngClass]="{
+                  'is-invalid': submitted && foo['dateOfBirth'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && foo['dateOfBirth'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['dateOfBirth'].errors['required']">
+                  Date of Birth!
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-5">
+              <label>place of Birth</label>
+              <input
+                type="text"
+                class="form-control"
+                style="width: 43rem"
+                placeholder="Place of Birth"
+                formControlName="placeOfBirth"
+                [ngClass]="{
+                  'is-invalid': submitted && foo['placeOfBirth'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && foo['placeOfBirth'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="foo['placeOfBirth'].errors['required']">
+                  place of Birth!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="dropdown form-group secondDropDown">
+              <label>Country</label>
+              <select
+                class="form-control"
+                style="width: 43rem"
+                class="inputFields form-control"
+                name="country"
+                formControlName="country"
+                [ngClass]="{ 'is-invalid': submitted && foo['country'].errors }"
+              >
+                <option *ngFor="let country of countrys">{{ country }}</option>
+              </select>
+            </div>
+            <div
+              *ngIf="submitted && foo['country'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="foo['country'].errors['required']">
+                Country is equired!
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+      <!-- button  start -->
+                  <!-- <div class="row">
+                    <div class="form-group d-flex justify-content-center px-4">
+                      <button type="button" class="btn btn-danger" (click)="onRetun()">
+                        Return
+                      </button>
+                      <button
+                        type="submit"
+                        class="btn btn-success me-2"
+                        (click)="onSubmit()"
+                      >
+                        Futher
+                      </button>
+                    </div>
+                  </div> -->
+      <!-- button end -->
+
+    <div
+      class="relation-to-Usa form-container border border-1"
+      style="width: 44.9rem"
+    >
+      <mat-card>
+        <mat-card-content>
+          {{ relationData }}
+        </mat-card-content>
+        <hr />
+        <section class="example-section" [formGroup]="toppings">
+          <p>
+            <mat-checkbox formControlName="bornInUs"
+              >I was born in the US.</mat-checkbox
+            >
+          </p>
+          <p>
+            <mat-checkbox formControlName="holdCitizenship"
+              >I hold a US citizenship.</mat-checkbox
+            >
+          </p>
+          <p>
+            <mat-checkbox formControlName="greenCard"
+              >I have a green card.</mat-checkbox
+            >
+          </p>
+        </section>
+      </mat-card>
+    </div>
+
+    <div
+      class="relation-to-Usa form-container border border-1"
+      style="width: 44.9rem; height: auto"
+    >
+      <mat-card>
+        <mat-card-content>
+          {{ reportingAddress }}
+        </mat-card-content>
+        <hr />
+        <!-- radio button  -->
+        <div>
+          <mat-radio-group
+            aria-label="Select an option"
+            (change)="onChangeFresher($event)"
+          >
+            <mat-radio-button value="residentialGermany">{{
+              radioButtonOne
+            }}</mat-radio-button>
+            <div *ngIf="selectedOption === 'residentialGermany'">
+              <input
+                type="text"
+                class="inputFiledforresidential"
+                placeholder="Germany tax handy"
+              />
+            </div>
+            <mat-radio-button value="taxresidentalGermany">{{
+              radioButtonTwo
+            }}</mat-radio-button>
+            <div *ngIf="selectedOption === 'taxresidentalGermany'">
+              <input
+                type="text"
+                class="inputFiledforresidential"
+                placeholder="Germany tax handy"
+              />
+              <input
+                type="text"
+                class="inputFiledforresidential"
+                placeholder="Land"
+              />
+              <input
+                type="text"
+                class="inputFiledforresidential"
+                placeholder="Tax Id"
+              />
+            </div>
+            <mat-radio-button value="nonResidentalgermany">{{
+              radioButtonThree
+            }}</mat-radio-button>
+            <div *ngIf="selectedOption === 'nonResidentalgermany'">
+              <input
+                type="text"
+                class="inputFiledforresidential"
+                placeholder="Germany tax handy"
+              />
+              <input
+                type="text"
+                class="inputFiledforresidential"
+                placeholder="Land"
+              />
+              <input
+                type="text"
+                class="inputFiledforresidential"
+                placeholder="Tax Id"
+              />
+            </div>
+          </mat-radio-group>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="col-5">
+    <app-overview></app-overview>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<mat-card class="overView-container border border-1" style="width: 26em ,">
+  <mat-card-content>
+    <p>Overview</p>
+    <hr />
+    <div class="chargesOfAccount">
+      <p class="box-1">{{ activeAccount }}</p>
+      <p class="box-2">{{ accountAcctiveCharges }} <br />per month</p>
+    </div>
+    <hr />
+    <div   class="Overdraft-facility">
+      <div  class="chargesOfAccount">
+      </div>
+      
+      <div *ngIf="hide" class="diffrent-cards">
+        <div class="chargesOfAccount">
+          <p class="box-1">{{ DispoCredit }}</p>
+          <p class="box-2">{{ DispoCreditAccountCharges }} <br />per month</p>
+        </div>
+        <hr />
+      </div>
+
+      
+
+      <div *ngIf="cardType" class="diffrent-cards row">
+        <div  class="chargesOfAccount col-8">
+          <p class="box-1">{{ cardType }}</p>  
+        </div>
+        <div class="col-4" [ngSwitch]="cardType">
+          <ng-container *ngSwitchCase="'Deutsche Bank Card Plus (debit card)'">
+            18,00 €<br />per month
+          </ng-container>
+          <ng-container *ngSwitchCase="'MasterCard Standard (credit card)'">
+            39,00 €<br />per month
+          </ng-container>
+          <ng-container *ngSwitchCase="'MasterCard Gold (credit card)'">
+            82,00 €<br />per month
+          </ng-container>
+          <ng-container *ngSwitchCase="'MasterCard Travel (credit card)'">
+            94,00 €<br />per month
+          </ng-container>
+        </div>
+        <hr />
+      </div>
+
+      <div  class="companyDetails">
+        <h3 class="text-center">Do you have questions?</h3>
+        <h6 class="text-center">You can reach us around the clock.</h6>
+        <h5 class="text-center">(069)-10047</h5>
+        <section>
+            <button mat-stroked-button color="primary" class="center">Start Chat</button>
+        </section>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

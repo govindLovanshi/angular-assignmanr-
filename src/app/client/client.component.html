@@ -1,0 +1,77 @@
+<div class="container row">
+    <div class="col-8">
+        <mat-card class="real-card" >
+            <div class="card border border-1" style=" height : 23%">
+                <div class="card-body">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" (change)="onChangeUserAccountType($event)">
+                        <div class="client-1">
+                            <input type="radio" class="btn-check" value="createNew"  name="btnradio" id="btnradio1" autocomplete="off" checked>
+                            <label class="btn btn-outline-primary" for="btnradio1">No, I'm not a customer yet</label>
+        
+                        </div>
+                       <div class="client-2">
+                        <input type="radio" class="btn-check" value="exiting" name="btnradio" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio2">Yes, I am a customer</label>
+                       </div>
+                    </div>
+                </div>
+                <!-- asking fresher code  -->
+                <div *ngIf="accountType === 'createNew'">
+
+                    <div class="banking-question"  (change)="individualAccount='individualAccount'" >
+                        <p>
+                            Which account would you like to open?
+                        </p>
+                        <div class="form-check" >
+                            <input class="form-check-input" value="individualAccount"  type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                I would like to open an individual account.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                We would like to open a joint account.
+                            </label>
+                        </div>
+                            
+                        <div class="fresher" *ngIf="individualAccount === 'individualAccount'">
+                            <p>Are you a fresher?</p>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                              <label class="form-check-label" for="flexRadioDefault1">And</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                              <label class="form-check-label" for="flexRadioDefault2">No</label>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+        
+                <div *ngIf="accountType === 'exiting'">
+                   <div class="banking-question">
+                    <p>
+                        Do you have active online banking access?
+                    </p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            And
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            On
+                        </label>
+                      </div>
+                   </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+    <div class="col-4">
+        <app-overview></app-overview>
+    </div>
+</div>

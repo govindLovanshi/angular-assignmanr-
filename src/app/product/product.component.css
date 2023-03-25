@@ -1,0 +1,70 @@
+.card {
+    margin-left: 10em;
+}
+
+.productCards{
+    margin-top: 3em;
+}
+
+.nameoftopic{
+    margin: 2em;
+}
+
+.nameoftopic{
+    margin-left: 10em;
+}
+
+.switchTrue{
+    display: flex;
+}
+
+.box2forSwitch{
+    margin-left: 2em;
+}
+
+.boxforCards{
+    display: flex;
+}
+
+.box2forCards{
+    margin-left: 1em;
+}
+
+.boxforCards .form-check{
+    display: block;
+}
+
+.personalInformation{
+    margin-left: 5%;
+    width: 43em;
+}
+
+.dropdown{
+    width: 39rem;
+    padding-right: 20em;
+}
+
+.inputFields{
+    width: 39rem;
+    padding-top: 5px;
+    margin-top: 5%;
+}
+
+.secondDropDown{
+    margin-top: 5%;
+}
+
+.cardNameWithPrice{
+    display: flex;
+}
+
+.cardNameWithPrice p {
+    margin-left: 15em;
+}
+
+.my-personal-container{
+    border: 1px solid black;
+}
+.body-card {
+    margin-left: 150px;
+}

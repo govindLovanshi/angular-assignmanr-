@@ -1,0 +1,45 @@
+.form-container{
+    margin-left: 6em; 
+    max-width: 45em;
+    padding: 1%;
+}
+
+.form-container input {
+    margin-top: 1em;
+}
+.form-container  select{
+    margin-top: 2px;
+}
+
+.body-card{
+    margin-top: 4em;
+}
+
+.titleName{
+    margin-top: 2em;
+    margin-left: 6em;
+
+}
+
+.relation-to-Usa{
+    margin-top: 3em;
+}
+
+.form-checked-inLine{
+    display: flex;
+}
+
+.inputFiledforresidential{
+    margin-left: 6%;
+    padding-right: 60%;
+
+}
+
+label{
+    margin-top: 7px;
+    margin-bottom: 2px;
+    
+}
+.border-form{
+    border: 1px solid rgba(167, 161, 161, 0.888);
+}
