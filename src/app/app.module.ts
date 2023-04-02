@@ -25,6 +25,17 @@ import {DataServiceService} from './service/data-service.service';
 import {StringDataService} from './service/string-data.service'
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { LegalComponent } from './legal/legal.component';
+import {MatIconModule   } from '@angular/material/icon';
+import { ActiveComponent } from './active/active.component';
+import { CourseGuardServices } from './course-guard.service';
+import { AuthService } from './auth.service';
+import { WelcomeComponent } from './welcome/welcome.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +45,9 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     ClientComponent,
     ProductComponent,
     PersonalComponent,
+    LegalComponent,
+    ActiveComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,15 +57,16 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     BrowserAnimationsModule,
     MatSlideToggleModule,
     MatRadioModule,
-    MatFormFieldModule,
     MatCheckboxModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
-    
+    MatInputModule,
+    MatIconModule,
+    MatAutocompleteModule,
+    HttpClientModule,  
   ],
-  providers: [DataServiceService , StringDataService ],
+  providers: [DataServiceService , StringDataService , CourseGuardServices , AuthService],
   bootstrap: [AppComponent],
   schemas : [CUSTOM_ELEMENTS_SCHEMA ]
 })

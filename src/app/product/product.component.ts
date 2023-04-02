@@ -1,8 +1,11 @@
-import { Component, NgModule , OnInit , Output  , EventEmitter, Injectable} from '@angular/core';
-import { FormBuilder, FormGroup , Validators , FormControl } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
+import { Component , OnInit , Output  , EventEmitter, Injectable} from '@angular/core';
+import { FormBuilder, FormGroup , Validators , FormControl ,FormGroupName  } from '@angular/forms';
 import {DataServiceService} from '../service/data-service.service'
 import {StringDataService} from '../service/string-data.service'
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-product',
@@ -14,10 +17,20 @@ export class ProductComponent implements OnInit {
   @Output() setFormStateEvent : EventEmitter<any> = new EventEmitter<void>();
 
   title = 'registration';
-  submitted : boolean = false;
   registerForm!: FormGroup;
- 
+
+  productForm! : FormGroup;
+  netIncomeMonthly :  any = ""
+  privateHealth :  string = ""
+  numberOfDependent :  string = ""
+  MaintanceObligation :  string = ""
+  positionProfession :  string = ""
   
+  submitted : boolean = false;
+  
+
+  constructor( private _fb : FormBuilder  , private dataService: DataServiceService , private router : Router ){}
+
 
   sercice = 'Included services at a glance';
   cardBoz1s = ['Online and telephone banking' , 'Digital mailbox in eSafe' , 'Deutsche Bank mobile app' , 'debit card']
@@ -29,7 +42,7 @@ export class ProductComponent implements OnInit {
   intersteYear = 'interest per year'
   card = 'cards'
   additionCard = 'Would you like an additional card?'
-  DeutscheCard = 'Deutsche Bank Card Plus (debit card)'
+  DeutscheCard = 'Deutsche Bank Card Plus  (debit card)'
   deutschAdvanatage = 'The debit card with the advantages of a credit card'
   debitCard = 'Direct debit from your account'
   point = ' Pay at millions of acceptance points worldwide - also contactless,mobile and online'
@@ -55,44 +68,76 @@ export class ProductComponent implements OnInit {
   cardType : any = "";
   DispoCreditValue : string = ''
 
-  constructor( private _fb : FormBuilder  , private dataService: DataServiceService ){}
 
 
   ngOnInit(): void {
-   
     this.setFormState()
+    this.saveFormToSessionStorage()
     this.dataService.currentShowData.subscribe(hide => this.hide = hide);
     this.dataService.currentCardType.subscribe(cardType => this.cardType = cardType);
-
   }
 
   setFormState(){
-
-    this.registerForm = this._fb.group({
-    property: ['' , Validators.required],
-    Financing: ['' , Validators.required],
-    aditionCost : ['' , Validators.required],
-    netIncome : ['' , Validators.required],
-    privateHelath : ['' , Validators.required],
-    numberOfDependent : ['' , Validators.required],
-    maintenance : ['' , Validators.required],
-    qualification : ['' , Validators.required],
+    this.productForm = this._fb.group({
+      netIncomeMonthly :  ['', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.min(2)]],
+      privateHealth :  ['', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.min(2)]],
+      numberOfDependent :  ['', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.min(2)]],
+      MaintanceObligation :  ['', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.min(2)]],
+      positionProfession :  ['', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.min(2)]],
     })
-
+    this.getFormFromSessionStorage()
   }
   
-  get foo(){
-    return this.registerForm.controls
+  saveFormToSessionStorage() {
+    const dataToStore = {
+      netIncomeMonthly: this.productForm.controls['netIncomeMonthly'].value,
+      privateHealth: this.productForm.controls['privateHealth'].value,
+      numberOfDependent: this.productForm.controls['numberOfDependent'].value,
+      MaintanceObligation: this.productForm.controls['MaintanceObligation'].value,
+      positionProfession: this.productForm.controls['positionProfession'].value
+    };
+    const json = JSON.stringify(dataToStore);
+    sessionStorage.setItem('productForm', json);
+    // sessionStorage.getItem('productForm');
+    console.log("======data is stored in session storage ======>" ,  json)
   }
 
- onSubmit(){
-  this.submitted = true
-  console.log("onSubmit--->")
-  if(this.registerForm.invalid){
-    return ;
+  getFormFromSessionStorage() {
+    const json = sessionStorage.getItem('productForm');
+    if (json) {
+      const data = JSON.parse(json);
+      this.productForm.setValue({
+        netIncomeMonthly: data.netIncomeMonthly,
+        privateHealth: data.privateHealth,
+        numberOfDependent: data.numberOfDependent,
+        MaintanceObligation: data.MaintanceObligation,
+        positionProfession: data.positionProfession
+      });
+      console.log("=======> get data===>" , json)
+    }
+   
   }
-  console.log("running===>" , this.registerForm.value)
-  this.dataService.onSubmit.next(null);
+
+  get foo(){
+    return this.productForm.controls
+  }
+
+  movingtoNextFunction(){
+    console.log("==============>" )
+    if(this.productForm.invalid ){
+      console.log("===== inside the on productForm")
+        return ;
+    }
+      this.saveFormToSessionStorage()
+      this.router.navigate(['personal']);
+      
+  }
+
+
+
+pageChange(){
+  this.router.navigate(['personal']);
+
 }
 
   onSwitchOne(){
@@ -121,6 +166,8 @@ export class ProductComponent implements OnInit {
     console.log("this.cardType===>", this.cardType);
   }
   
-  onRetun(){}
+  onRetun(){
+    this.router.navigate(['']);
+  }
 
 }

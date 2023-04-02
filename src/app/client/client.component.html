@@ -1,77 +1,234 @@
-<div class="container row">
-    <div class="col-8">
-        <mat-card class="real-card" >
-            <div class="card border border-1" style=" height : 23%">
-                <div class="card-body">
-                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" (change)="onChangeUserAccountType($event)">
-                        <div class="client-1">
-                            <input type="radio" class="btn-check" value="createNew"  name="btnradio" id="btnradio1" autocomplete="off" checked>
-                            <label class="btn btn-outline-primary" for="btnradio1">No, I'm not a customer yet</label>
-        
-                        </div>
-                       <div class="client-2">
-                        <input type="radio" class="btn-check" value="exiting" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">Yes, I am a customer</label>
-                       </div>
-                    </div>
+<div class="row">
+  <div class="col-5 container">
+    <div>
+      <form [formGroup]="clientForm">
+        <mat-card class="real-card">
+          <div class="card border border-1" style="height: auto">
+            <div class="card-body">
+              <div
+                class="btn-group"
+                role="group"
+                aria-label="Basic radio toggle button group"
+                (change)="onChangeUserAccountType($event)">
+                <div class="client-1">
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    value="createNew"
+                    name="btnradio"
+                    formControlName="customer"
+                    id="btnradio1"
+                    autocomplete="off"
+                    (click)="restartFun($event)"
+                  />
+                  <label class="btn btn-outline-primary" for="btnradio1"
+                    >No, I'm not a customer yet</label
+                  >
                 </div>
-                <!-- asking fresher code  -->
-                <div *ngIf="accountType === 'createNew'">
-
-                    <div class="banking-question"  (change)="individualAccount='individualAccount'" >
-                        <p>
-                            Which account would you like to open?
-                        </p>
-                        <div class="form-check" >
-                            <input class="form-check-input" value="individualAccount"  type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                I would like to open an individual account.
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                We would like to open a joint account.
-                            </label>
-                        </div>
-                            
-                        <div class="fresher" *ngIf="individualAccount === 'individualAccount'">
-                            <p>Are you a fresher?</p>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                              <label class="form-check-label" for="flexRadioDefault1">And</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                              <label class="form-check-label" for="flexRadioDefault2">No</label>
-                            </div>
-                          </div>
-                    </div>
+                <div class="client-2">
+                  <input type="radio"
+                    class="btn-check"
+                    value="exiting"
+                    formControlName="customer"
+                    name="btnradio"
+                    (click)="restartFun($event)"
+                    id="btnradio2"
+                    autocomplete="off"/>
+                  <label class="btn btn-outline-primary" for="btnradio2">
+                    Yes, I am a customer</label>
                 </div>
-        
-                <div *ngIf="accountType === 'exiting'">
-                   <div class="banking-question">
-                    <p>
-                        Do you have active online banking access?
-                    </p>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            And
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            On
-                        </label>
-                      </div>
-                   </div>
-                </div>
+              </div>
+               <!-- error logic start -->
+              <div class="ms-3">
+                <mat-error *ngIf="clientForm.get('customer')?.invalid">
+                  <span *ngIf="clientForm.get('customer')?.errors?.['required']">
+                    Please select any Fields *
+                  </span>
+                </mat-error>
+              </div>
+              <!-- error logic end  -->
             </div>
+            <!-- next div  -->
+            <div>
+              <!-- creating  -->
+              <div *ngIf="accountType == 'createNew'">
+                <div class="banking-question" (click)="askingFresher($event)">
+                  <label>Which account would you like to open?</label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      value="individualAccount"
+                      type="radio"
+                      
+                      name="flexRadioDefault1"
+                      id="flexRadioDefault1"/>
+                    <label class="form-check-label" for="flexRadioDefault1">I would like to open an individual account.</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      formControlName="alreadyRegister"
+                      value="joinAccount"
+                      name="flexRadioDefault1"
+                      id="flexRadioDefault2"/>
+                    <label class="form-check-label" for="flexRadioDefault2">We would like to open a joint account.</label>
+                  </div>
+                </div>
+                <!-- error start  -->
+                <div class="ms-3">
+
+                  <mat-error *ngIf="clientForm.get('customer')?.valid && clientForm.get('alreadyRegister')?.invalid">
+                    <span *ngIf="clientForm.get('alreadyRegister')?.errors?.['required'] && fresherAccount!='joinAccount' ">
+                      
+                        Please select one of the options**
+                      
+                    </span>
+                  </mat-error>
+
+                </div>
+                <div>
+                  <div class="fresher mx-4"
+                    (click)="checkingForFresher($event)"
+                    *ngIf="fresherAccount === 'individualAccount' && accountType != 'exiting'">
+                    <p>Are you a fresher?</p>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        formControlName="alreadyRegister"
+                        id="flexRadioDefault3"
+                        value="ands"
+                        required/>
+                      <label class="form-check-label" for="flexRadioDefault3">And</label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadioDefault"
+                        formControlName="alreadyRegister"
+                        id="flexRadioDefault4"
+                        value="on"
+                        required/>
+                      <label class="form-check-label" for="flexRadioDefault4">No</label>
+                    </div>
+                  </div>
+                  <div class="ms-3">
+
+                    <mat-error *ngIf="clientForm.get('customer')?.valid && clientForm.get('alreadyRegister')?.valid">
+                      <span *ngIf=" customer=='createNew' && fresherAccount=='individualAccount'  && (checkingFresher == 'ands' || checkingFresher == 'on') ">
+                          Please select one from this options***
+                      </span>
+                    </mat-error>
+  
+                  </div>
+                </div>
+                <!-- error end  -->
+              </div>
+              <!-- asking fresher  -->
+             
+              <!-- <div
+                class="fresher mx-4"
+                (click)="checkingForFresher($event)"
+                *ngIf="fresherAccount === 'individualAccount' && accountType != 'exiting'">
+                <p>Are you a fresher?</p>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    formControlName="alreadyRegister"
+                    id="flexRadioDefault3"
+                    value="ands"
+                    required
+                  />
+                  <label class="form-check-label" for="flexRadioDefault3"
+                    >And</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    formControlName="alreadyRegister"
+                    id="flexRadioDefault4"
+                    value="on"
+                    required
+                  />
+                  <label class="form-check-label" for="flexRadioDefault4"
+                    >No</label
+                  >
+                </div>
+              </div> -->
+             
+              <!-- exsting  -->
+              <div *ngIf="accountType === 'exiting'" (click)="hereIsData($event)">
+                <div class="banking-question">
+                  <p>Do you have active online banking access?</p>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      formControlName="alreadyRegister"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault5"
+                      value="andsf"/>
+                    <label class="form-check-label" for="flexRadioDefault5"
+                      >And</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault6"
+                      value="nos"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault6"
+                      >No</label
+                    >
+                  </div>
+                </div>
+                <div class="ms-3">
+
+                  <mat-error *ngIf="clientForm.get('customer')?.valid ">
+                    <span *ngIf="clientForm.get('alreadyRegister')?.errors?.['required']">
+                      
+                        Please select one of the options****
+                      
+                    </span>
+                  </mat-error>
+
+                </div>
+              </div>
+
+            </div>
+            <div class="ms-3">
+             
+
+            </div>
+          </div>
         </mat-card>
+
+        <div>
+          <div class="form-group d-flex justify-content-center px-4 my-2">
+            <button
+              (click)="moveTonextPage()"
+              type="submit"
+              class="btn btn-success me-2"
+            >
+              Futher >>
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="col-4">
-        <app-overview></app-overview>
-    </div>
+  </div>
+  <div class="overView col-4">
+    <app-overview></app-overview>
+  </div>
 </div>

@@ -31,12 +31,10 @@ export class OverviewComponent implements OnInit {
   ngOnInit() {
     this.dataService.currentShowData.subscribe(hide => {
       this.hide = hide;
-      console.log("the component----> from ", this.hide);
     });
 
     this.dataService.currentCardType.subscribe(cardType => {
       this.cardType = cardType;
-      console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqq", this.cardType);
     });
   }
 

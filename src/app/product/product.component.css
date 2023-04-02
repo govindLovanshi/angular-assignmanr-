@@ -8,12 +8,8 @@
 
 .nameoftopic{
     margin: 2em;
-}
-
-.nameoftopic{
     margin-left: 10em;
 }
-
 .switchTrue{
     display: flex;
 }
@@ -68,3 +64,32 @@
 .body-card {
     margin-left: 150px;
 }
+
+input.ng-invalid{
+    border-left: 5px solid red;
+}
+input.ng-valid{
+    border-left: 5px solid green;
+}
+
+input.ng-invalid.ng-touched{
+    border-color : red
+}
+
+.form-conatiner{
+    margin-left: 20%;
+
+}
+.newInputs{
+    padding-right: 30px;
+}
+
+.newInputs{
+    margin-left: 20px;
+}
+
+.justMoving{
+    margin-left: 150px;
+    margin-bottom: 2em;
+}
+

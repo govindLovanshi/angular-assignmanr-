@@ -78,7 +78,7 @@
                   {{ deutschAdvanatage }}
                 </h6>
               </div>
-              <div >
+              <div>
                 <p>{{ debitCard }}</p>
                 <p>
                   {{ point }}
@@ -109,12 +109,11 @@
                 </div>
                 <h6>{{ theDay }}</h6>
               </div>
-              <div >
+              <div>
                 <p>
                   {{ point }}
                 </p>
                 <p>{{ CardApp }}</p>
-                
               </div>
             </div>
             <hr />
@@ -136,7 +135,7 @@
                 </div>
                 <h6>{{ relataibale }}</h6>
               </div>
-              <div >
+              <div>
                 <p>
                   {{ point }}
                 </p>
@@ -164,7 +163,7 @@
                 </div>
                 <h6>{{ masterCrsdStron }}</h6>
               </div>
-              <div >
+              <div>
                 <p>
                   {{ point }}
                 </p>
@@ -186,212 +185,92 @@
     <div class="nameoftopic">
       <h4>Personal Information</h4>
     </div>
-
-    <div class="body-card">
-      <div class="my-personal-container">
-        <form
-          [formGroup]="registerForm"
-          (ngSubmit)="onSubmit()"
-          class="personalInformation"
-        >
-          <div class="dropdown form-group">
-            <select
-              class="form-control"
-              style="width: 39rem"
-              class="inputFields form-control"
-              name="property"
-              formControlName="property"
-              [ngClass]="{ 'is-invalid': submitted && foo['property'].errors }"
-            >
-              <option *ngFor="let area of rentalArea">{{ area }}</option>
-            </select>
-            <div
-              *ngIf="submitted && foo['property'].errors"
-              class="invalid-feedback"
-            >
-              <div *ngIf="foo['property'].errors['required']">
-                property is required!
-              </div>
-            </div>
-          </div>
+    <div class="relation-to-Usa  justMoving  border border-1"
+    style="width: 44.9rem ">
+      <form [formGroup]="productForm" >
+       <mat-card>
           <div>
-            <div>
-              <input
-                type="text"
-                placeholder="Financing rate month"
-                name="Financing"
-                class="inputFields form-control"
-                name="Financing"
-                formControlName="Financing"
-                required
-                [ngClass]="{
-                  'is-invalid': submitted && foo['Financing'].errors
-                }"
-              />
-              <div
-                *ngIf="submitted && foo['Financing'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['Financing'].errors['required']">
-                  Financing rate month!
-                </div>
-              </div>
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Adition costs month"
-                name="aditionCost"
-                class="inputFields form-control"
-                name="aditionCost"
-                formControlName="aditionCost"
-                [ngClass]="{
-                  'is-invalid': submitted && foo['aditionCost'].errors
-                }"
-              />
-              <div
-                *ngIf="submitted && foo['aditionCost'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['aditionCost'].errors['required']">
-                  Adition costs month!
-                </div>
-              </div>
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Net Income month"
-                name="netIncome"
-                class="inputFields form-control"
-                name="netIncome"
-                formControlName="netIncome"
-                [ngClass]="{
-                  'is-invalid': submitted && foo['netIncome'].errors
-                }"
-              />
-              <div
-                *ngIf="submitted && foo['netIncome'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['netIncome'].errors['required']">
-                  Net Income month!
-                </div>
-              </div>
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="private headlth insurance month"
-                name="privateHelath"
-                class="inputFields form-control"
-                name="privateHelath"
-                formControlName="privateHelath"
-                [ngClass]="{
-                  'is-invalid': submitted && foo['privateHelath'].errors
-                }"
-              />
-              <div
-                *ngIf="submitted && foo['privateHelath'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['privateHelath'].errors['required']">
-                  private headlth insurance month!
-                </div>
-              </div>
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Number of dependent children"
-                name="numberOfDependent"
-                class="inputFields form-control"
-                name="numberOfDependent"
-                formControlName="numberOfDependent"
-                [ngClass]="{
-                  'is-invalid': submitted && foo['numberOfDependent'].errors
-                }"
-              />
-              <div
-                *ngIf="submitted && foo['numberOfDependent'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['numberOfDependent'].errors['required']">
-                  Number of dependent children!
-                </div>
-              </div>
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Maintenance obligation month"
-                name="maintenance"
-                class="inputFields form-control"
-                name="maintenance"
-                formControlName="maintenance"
-                [ngClass]="{
-                  'is-invalid': submitted && foo['maintenance'].errors
-                }"
-              />
-              <div
-                *ngIf="submitted && foo['maintenance'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['maintenance'].errors['required']">
-                  Maintenance obligation month!
-                </div>
-              </div>
-            </div>
+            <mat-label for="exampleInputEmail1" >Financing Rate</mat-label>
           </div>
-          <div></div>
-          <div class="mt-3">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckChecked"
-              />
-              <label class="form-check-label" for="flexCheckDefault">
-                I use this account as a payroll account
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckChecked"
-              />
-              <label class="form-check-label" for="flexCheckChecked">
-                I don't use this account as a payroll account, but I expect to
-                receive other regular payments
-              </label>
-            </div>
+          <mat-form-field appearance="outline">
+            <!-- <mat-mat-label class="newLabel" >Financing Rate in euros €</mat-mat-label> -->
+            <input matInput type="text"  formControlName="netIncomeMonthly" placeholder="Financing Rate">
+            <mat-error *ngIf="productForm.get('netIncomeMonthly')?.invalid">
+              <span *ngIf="productForm.get('netIncomeMonthly')?.errors?.['required']">Financing Rate should be in euros €.</span>
+              <span *ngIf="productForm.get('netIncomeMonthly')?.errors?.['pattern']">Financing Rate should be greater than 2 value.</span>
+            </mat-error>
+          </mat-form-field>
+       
+        
+          <div>
+            <mat-label for="exampleInputEmail1" >Addition Cost</mat-label>
           </div>
+          <mat-form-field appearance="outline">
+            <!-- <mat-mat-label class="newLabel" >Addition Cost</mat-mat-label> -->
+            <input matInput type="text"  formControlName="privateHealth" placeholder="Addition Cost">
+            <mat-error *ngIf="productForm.get('privateHealth')?.invalid">
+              <span *ngIf="productForm.get('privateHealth')?.errors?.['required']">Addition Costis should be in euros €.</span>
+              <span *ngIf="productForm.get('privateHealth')?.errors?.['min']">Addition Cost should be greater than 2 value</span>
+            </mat-error>
+          </mat-form-field>
+      
+      
+          <div>
+            <mat-label for="exampleInputEmail1" >Net Income</mat-label>
+          </div>
+          <mat-form-field appearance="outline">
+            <!-- <mat-mat-label class="newLabel">Net income in Month</mat-mat-label> -->
+            <input matInput type="text"  formControlName="numberOfDependent" placeholder="Net Income">
+            <mat-error *ngIf="productForm.get('numberOfDependent')?.invalid">
+              <span *ngIf="productForm.get('numberOfDependent')?.errors?.['required']">Net income Monthly should be in euros €.</span>
+              <span *ngIf="productForm.get('numberOfDependent')?.errors?.['min']">Net income Monthly  should be greater than 2 value</span>
+            </mat-error>
+          </mat-form-field>
+       
+        
+          <div>
+            <mat-label for="exampleInputEmail1" >Private Health Insurances</mat-label>
+          </div>
+          <mat-form-field appearance="outline">
+            <!-- <mat-mat-label class="newLabel">Private Health Insurances</mat-mat-label> -->
+            <input matInput type="text"  formControlName="MaintanceObligation" placeholder="Private Health Insurances">
+            <mat-error *ngIf="productForm.get('MaintanceObligation')?.invalid">
+              <span *ngIf="productForm.get('MaintanceObligation')?.errors?.['required']">Private Health Insurances should be in euros €.</span>
+              <span *ngIf="productForm.get('MaintanceObligation')?.errors?.['min']">Private Health Insurances should be greater than 2 value</span>
+            </mat-error>
+          </mat-form-field>
+       
+      
+          <div>
+            <mat-label for="exampleInputEmail1" >Maintance Obligations </mat-label>
+          </div>
+          <mat-form-field appearance="outline">
+            <!-- <mat-mat-label class="newLabel" >Maintance Obligations</mat-mat-label> -->
+            <input matInput type="text"  formControlName="positionProfession" placeholder="Maintance Obligations ">
+            <mat-error *ngIf="productForm.get('positionProfession')?.invalid">
+              <span *ngIf="productForm.get('positionProfession')?.errors?.['required']">Maintance Obligations should be in euros €.</span>
+              <span *ngIf="productForm.get('positionProfession')?.errors?.['min']">Maintance Obligations should be greater than 2 value</span>
+            </mat-error>
+          </mat-form-field>       
+       </mat-card>
 
-        </form>
+       <div class="row my-2">
+        <div class="form-group d-flex justify-content-center px-4">
+          <button type="button" class="btn btn-danger" (click)="onRetun()">
+            Return
+          </button>
+          <button type="submit" class="btn btn-success me-5 mx-4" (click)="movingtoNextFunction()"  >
+            Futher
+          </button>
+        </div>
       </div>
+       
+      </form>
     </div>
-              <!-- button  start -->
-              <!-- <div class="row">
-                <div class="form-group d-flex justify-content-center px-4">
-                  <button type="button" class="btn btn-danger" (click)="onRetun()">
-                    Return
-                  </button>
-                  <button
-                    type="submit"
-                    class="btn btn-success me-2"
-                    (click)="onSubmit()"
-                  >
-                    Futher
-                  </button>
-                </div>
-              </div> -->
-              <!-- button end -->
 
   </div>
   <div class="col-4">
     <app-overview></app-overview>
   </div>
 </div>
+

@@ -1,0 +1,44 @@
+.overView{
+    margin-right: 5em;
+}
+
+.main-div-conatiner{
+    display: flex;
+}
+
+.activeAccount-Container{
+    width: 80%;
+}
+
+.conatinerOne{
+    margin-left: 3em;
+    width: 40em;
+}
+
+.conatiner-for-flexing{
+    display: flex;
+}
+
+.nameForTitle{
+    margin-left: 5em;
+}
+
+.activeAccount-Container{
+    margin-left: 4em;
+}
+
+.input-fields-password{
+    margin-left: 5em;
+}
+
+.user-details{
+    display: flex;
+}
+
+.user-details-boxOne{
+    margin-left: 2em;
+}
+
+.user-details-boxTwo{
+    margin-left: 4em;
+}

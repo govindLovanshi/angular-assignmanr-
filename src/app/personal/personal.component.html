@@ -4,198 +4,128 @@
       <h3>{{ title }}</h3>
       <p>{{ phara }}</p>
     </div>
+    <form [formGroup]="personalForm" >
+    <div class="relation-to-Usa form-container border border-1" style="width: 44.9rem">
+       <mat-card>
+        
+          <div>
+            <mat-label for="exampleInputEmail1" >First Name</mat-label>
+          </div>
+          <mat-form-field appearance="outline">
+            <!-- <mat-mat-label class="newLabel" >First Name</mat-mat-label> -->
+            <input matInput type="text"  formControlName="firstName" placeholder="First Name">
+            <mat-error *ngIf="personalForm.get('firstName')?.invalid">
+              <span *ngIf="personalForm.get('firstName')?.errors?.['required']">First Name is required.</span>
+              <span *ngIf="personalForm.get('firstName')?.errors?.['min']">First Name should have atlest 3 characters</span>
+            </mat-error>
+          </mat-form-field>
+       
+        
+          <div>
+            <mat-label for="exampleInputEmail1" >Last Name</mat-label>
+          </div>
+          <mat-form-field appearance="outline">
+            <!-- <mat-mat-label class="newLabel" >Last Name</mat-mat-label> -->
+            <input matInput type="text"  formControlName="lastName" placeholder="Last Name">
+            <mat-error *ngIf="personalForm.get('lastName')?.invalid">
+              <span *ngIf="personalForm.get('lastName')?.errors?.['required']">Last Name required.</span>
+              <span *ngIf="personalForm.get('lastName')?.errors?.['min']">Last Name should have atlest 3 characters</span>
+            </mat-error>
+          </mat-form-field>
+          
+          <!-- <div>
+            <mat-label>Material Status</mat-label>
+          </div>
+          <mat-form-field appearance="outline">
+            <select formControlName="materialStatus" matInput placeholder="Material Status">
+              <option *ngFor="let status of arrayMaterialStatus" [value]="status">{{status}}</option>
+            </select>
+            <mat-error *ngIf="personalForm.get('materialStatus')?.invalid">
+              <span *ngIf="personalForm.get('materialStatus')?.errors?.['required']">Material Status is required</span>
+            </mat-error>
+          </mat-form-field> -->
 
-    <div class="form-container border-form">
-      <div class="body-card">
-        <form
-          [formGroup]="registerForm"
-          (ngSubmit)="onSubmit()"
-          class="personalInformation"
-          border
-          border-1
-        >
           <div>
-            <mat-radio-group aria-label="Select an option">
-              <span *ngFor="let gender from myGender">
-                <input type="radio" id="{{gender.id}}" value="{{gender.value}}" name="gender"  />
-                <label for="male" >{{gender.value}}</label>
-              </span>
-            </mat-radio-group>
+            <mat-label>Material Status</mat-label>
           </div>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="materialStatus" placeholder="Material Status" [matAutocomplete]="auto">
+            <mat-autocomplete #auto>
+              <mat-option *ngFor="let status of arrayMaterialStatus" [value]="status">{{status}}</mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="personalForm.get('materialStatus')?.invalid">
+              <span *ngIf="personalForm.get('materialStatus')?.errors?.['required']">Material Status is required</span>
+            </mat-error>
+          </mat-form-field>
+       
+        
           <div>
-            <div class="form-group col-5">
-              <label>{{ name }}</label>
-              <input
-                type="text"
-                class="form-control"
-                style="width: 43rem"
-                placeholder="First Name"
-                formControlName="firstName"
-                [ngClass]="{
-                  'is-invalid': submitted && foo['firstName'].errors
-                }"
-              />
-              <div
-                *ngIf="submitted && foo['firstName'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['firstName'].errors['required']">
-                  {{ name! }}
-                </div>
-              </div>
-            </div>
-            <div class="form-group col-5">
-              <label>{{ lastName }}</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Last Name"
-                style="width: 43rem"
-                formControlName="lastName"
-                [ngClass]="{
-                  'is-invalid': submitted && foo['lastName'].errors
-                }"
-              />
-              <div
-                *ngIf="submitted && foo['lastName'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['lastName'].errors['required']">
-                  {{ lastName! }}
-                </div>
-              </div>
-            </div>
-            <div class="form-group col-5">
-              <label>{{ bName }}</label>
-              <input
-                type="text"
-                class="form-control"
-                style="width: 43rem"
-                placeholder="Birth name(optional)"
-                formControlName="birthName"
-                [ngClass]="{
-                  'is-invalid': submitted && foo['lastName'].errors
-                }"
-              />
-              <div
-                *ngIf="submitted && foo['birthName'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['birthName'].errors['required']">
-                  {{ bName! }}
-                </div>
-              </div>
-            </div>
-            <div class="dropdown form-group">
-              <label>{{ MaterialStatus }}</label>
-              <select
-                class="form-control"
-                style="width: 43rem"
-                class="inputFields form-control"
-                name="Material"
-                formControlName="Material"
-                [ngClass]="{
-                  'is-invalid': submitted && foo['Material'].errors
-                }"
-              >
-                <option *ngFor="let status of arrayMaterialStatus">
-                  {{ status }}
-                </option>
-              </select>
-              <div
-                *ngIf="submitted && foo['Material'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['Material'].errors['required']">
-                  {{ MaterialStatus! }}
-                </div>
-              </div>
-            </div>
-            <div class="form-group col-5">
-              <label>Date of Birth</label>
-              <input
-                type="text"
-                class="form-control"
-                style="width: 43rem"
-                placeholder="Birth name(optional)"
-                formControlName="dateOfBirth"
-                [ngClass]="{
-                  'is-invalid': submitted && foo['dateOfBirth'].errors
-                }"
-              />
-              <div
-                *ngIf="submitted && foo['dateOfBirth'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['dateOfBirth'].errors['required']">
-                  Date of Birth!
-                </div>
-              </div>
-            </div>
-            <div class="form-group col-5">
-              <label>place of Birth</label>
-              <input
-                type="text"
-                class="form-control"
-                style="width: 43rem"
-                placeholder="Place of Birth"
-                formControlName="placeOfBirth"
-                [ngClass]="{
-                  'is-invalid': submitted && foo['placeOfBirth'].errors
-                }"
-              />
-              <div
-                *ngIf="submitted && foo['placeOfBirth'].errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="foo['placeOfBirth'].errors['required']">
-                  place of Birth!
-                </div>
-              </div>
-            </div>
+            <mat-label for="exampleInputEmail1" >Date of Birth</mat-label>
           </div>
+          <mat-form-field appearance="outline">
+            <!-- <mat-mat-label class="newLabel">Date of Birth</mat-mat-label> -->
+            <input matInput type="text" formControlName="dateOfBirth" placeholder="YYYY-MM-DD">
+            <mat-error *ngIf="personalForm.get('dateOfBirth')?.invalid">
+              <span *ngIf="personalForm.get('dateOfBirth')?.errors?.['required']">Date of Birth required</span>
+              <span *ngIf="personalForm.get('dateOfBirth')?.errors?.['pattern']">format should YYYY-MM-DD</span>
+            </mat-error>
+          </mat-form-field>
+       
+      
           <div>
-            <div class="dropdown form-group secondDropDown">
-              <label>Country</label>
-              <select
-                class="form-control"
-                style="width: 43rem"
-                class="inputFields form-control"
-                name="country"
-                formControlName="country"
-                [ngClass]="{ 'is-invalid': submitted && foo['country'].errors }"
-              >
-                <option *ngFor="let country of countrys">{{ country }}</option>
-              </select>
-            </div>
-            <div
-              *ngIf="submitted && foo['country'].errors"
-              class="invalid-feedback"
-            >
-              <div *ngIf="foo['country'].errors['required']">
-                Country is equired!
-              </div>
-            </div>
+            <mat-label for="exampleInputEmail1" >Place of Birth</mat-label>
           </div>
-        </form>
-      </div>
+          <mat-form-field appearance="outline">
+            <!-- <mat-mat-label class="newLabel" >Place of Birth</mat-mat-label> -->
+            <input matInput type="text"  formControlName="placeOfBirth" placeholder="Place of Birth">
+            <mat-error *ngIf="personalForm.get('placeOfBirth')?.invalid">
+              <span *ngIf="personalForm.get('placeOfBirth')?.errors?.['required']">Place of Birth is required</span>
+              <span *ngIf="personalForm.get('placeOfBirth')?.errors?.['min']">Place of Birth should have atlest 3 characters</span>
+            </mat-error>
+          </mat-form-field>
+          
+          <div>
+            <mat-label>Country</mat-label>
+          </div>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="country" placeholder="Country" [matAutocomplete]="auto">
+            <mat-autocomplete #auto>
+              <mat-option *ngFor="let country of countries" [value]="country" >{{country}}</mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="personalForm.get('country')?.invalid">
+              <span *ngIf="personalForm.get('country')?.errors?.['required']">Country is required</span>
+            </mat-error>
+          </mat-form-field>
+       
+          <!-- <div>
+            <mat-label>Country</mat-label>
+          </div>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="countries" placeholder="Select any Country" [matAutocomplete]="auto">
+            <mat-autocomplete #auto>
+              <mat-option  *ngFor="let country of countries" value="country"  >{{ country.name }}</mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="personalForm.get('countries')?.invalid">
+              <span *ngIf="personalForm.get('countries')?.errors?.['required']">Country Status is required</span>
+            </mat-error>
+          </mat-form-field> -->
+
+          <!-- <div>
+            <mat-label for="exampleInputEmail1" >Country </mat-label>
+          </div>
+          <mat-form-field appearance="outline">
+            <input matInput type="text"  formControlName="country" placeholder="Country">
+            <mat-error *ngIf="personalForm.get('country')?.invalid">
+              <span *ngIf="personalForm.get('country')?.errors?.['required']">Country is required</span>
+              <span *ngIf="personalForm.get('country')?.errors?.['min']">Country should have atlest 3 characters</span>
+            </mat-error>
+          </mat-form-field> 
+        -->
+       
+       </mat-card>
+       
+      <!-- </form> -->
     </div>
-      <!-- button  start -->
-                  <!-- <div class="row">
-                    <div class="form-group d-flex justify-content-center px-4">
-                      <button type="button" class="btn btn-danger" (click)="onRetun()">
-                        Return
-                      </button>
-                      <button
-                        type="submit"
-                        class="btn btn-success me-2"
-                        (click)="onSubmit()"
-                      >
-                        Futher
-                      </button>
-                    </div>
-                  </div> -->
-      <!-- button end -->
 
     <div
       class="relation-to-Usa form-container border border-1"
@@ -203,9 +133,9 @@
     >
       <mat-card>
         <mat-card-content>
-          {{ relationData }}
+          {{ relationData }}  (optional)
         </mat-card-content>
-        <hr />
+        <hr /> 
         <section class="example-section" [formGroup]="toppings">
           <p>
             <mat-checkbox formControlName="bornInUs"
@@ -228,19 +158,17 @@
 
     <div
       class="relation-to-Usa form-container border border-1"
-      style="width: 44.9rem; height: auto"
-    >
+      style="width: 44.9rem; height: auto" >
       <mat-card>
         <mat-card-content>
-          {{ reportingAddress }}
+          {{ reportingAddress }}  (optional)
         </mat-card-content>
         <hr />
         <!-- radio button  -->
         <div>
           <mat-radio-group
             aria-label="Select an option"
-            (change)="onChangeFresher($event)"
-          >
+            (change)="onChangeFresher($event)">
             <mat-radio-button value="residentialGermany">{{
               radioButtonOne
             }}</mat-radio-button>
@@ -295,8 +223,101 @@
         </div>
       </mat-card>
     </div>
+
+    <div  
+     class="relation-to-Usa form-container border border-1"
+    style="width: 44.9rem"
+    >
+    <!-- <form [formGroup]="personalForm" > -->
+      <mat-card>
+        <mat-card-content>
+            Reporting address
+        </mat-card-content>
+        <hr>
+          <div>
+            <mat-label>street and house number</mat-label>
+          </div>
+          <mat-form-field appearance="outline" >
+            <input matInput formControlName="streetAndNumber" type="text" placeholder="street and house number" />
+            <mat-error *ngIf="personalForm.get('streetAndNumber')?.invalid">
+              <span    *ngIf="personalForm.get('streetAndNumber')?.errors?.['required']">Street name is required</span>
+              <span   *ngIf="personalForm.get('streetAndNumber')?.errors?.['pattern']">Street name and number should have space.</span>
+            </mat-error>
+          </mat-form-field>
+          <div>
+            <label>PLZ</label>
+          </div>
+          <mat-form-field appearance="outline" >
+            <input matInput formControlName="plz" type="text" placeholder="PLZ" />
+            <mat-error *ngIf="personalForm.get('plz')?.invalid">
+              <span    *ngIf="personalForm.get('plz')?.errors?.['required']">PLZ is required</span>
+              <span   *ngIf="personalForm.get('plz')?.errors?.['pattern']">PLZ should be excat 5 pin-code</span>
+            </mat-error>
+          </mat-form-field>
+        <div>
+          <label>CITY</label>
+        </div>
+        <mat-form-field appearance="outline" >
+          <input matInput formControlName="city" type="text" placeholder="city" />
+          <mat-error *ngIf="personalForm.get('city')?.invalid">
+            <span    *ngIf="personalForm.get('city')?.errors?.['required']">city is required</span>
+            <!-- <span   *ngIf="personalForm.get('city')?.errors?.['pattern']">city</span> -->
+          </mat-error>
+        </mat-form-field>
+      </mat-card>
+    <!-- </form> -->
+    </div>
+
+    <div  
+    class="relation-to-Usa form-container border border-1"
+   style="width: 44.9rem"
+   >
+   <!-- <form [formGroup]="personalForm" > -->
+     <mat-card>
+       <mat-card-content>
+        Contact
+       </mat-card-content>
+       <hr>
+         <div>
+           <mat-label>Phone Number</mat-label>
+         </div>
+         <mat-form-field appearance="outline" >
+           <input matInput formControlName="phoneNumber" type="text" placeholder="Phone no (eg +910000000000)" />
+           <mat-error *ngIf="personalForm.get('phoneNumber')?.invalid">
+             <span    *ngIf="personalForm.get('phoneNumber')?.errors?.['required']">Phone Number is required</span>
+             <span   *ngIf="personalForm.get('phoneNumber')?.errors?.['pattern']">Phone No should have +91 & and have 10 number</span>
+           </mat-error>
+         </mat-form-field>
+         <div>
+           <label>Email</label>
+         </div>
+         <mat-form-field appearance="outline" >
+           <input matInput formControlName="email" type="text" placeholder="Email (eg abc@gmail.com)" />
+           <mat-error *ngIf="personalForm.get('email')?.invalid">
+             <span    *ngIf="personalForm.get('email')?.errors?.['required']">email is required</span>
+             <span   *ngIf="personalForm.get('email')?.errors?.['pattern']">check your email once.</span>
+           </mat-error>
+         </mat-form-field>
+     </mat-card>
+  
+
+   <div class="row onlyForMargin">
+    <div class="form-group d-flex justify-content-center px-4">
+      <button type="button" class="btn btn-danger" (click)="onRetun()">
+        Return
+      </button>
+      <button type="submit" class="btn btn-success me-2 mx-5" (click)="movingtoNextFunction()" >
+        Futher
+      </button>
+    </div>
   </div>
+   </div>
+  </form>
+</div>
+  
   <div class="col-5">
     <app-overview></app-overview>
   </div>
 </div>
+
+

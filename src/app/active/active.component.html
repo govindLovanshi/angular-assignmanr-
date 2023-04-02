@@ -1,0 +1,112 @@
+<div class="row main-div-conatiner ">
+    <div class="leftSide-conatiner" >
+        <div class=" nameForTitle">
+            <h3>Active</h3>
+            <h4>overview</h4>
+        </div>
+       
+        <div class="col-7 conatinerOne">
+            <mat-card class="relation-to-Usa form-container border border-1"
+            style="width: 35.9rem" >
+                <div class="main-div-conatiner" >
+                    <div class="activeAccount-Container" >
+                        <mat-card-content>
+                            ActiveAccount
+                        </mat-card-content>
+                        <div>
+                            <mat-icon>done</mat-icon> Online and telephone banking
+                        </div>
+                        <div>
+                            <mat-icon>done</mat-icon> Digital mailbox in eSafe
+                        </div>
+                        <div>
+                            <mat-icon>done</mat-icon> Deutsche Bank mobile app
+                        </div>
+                        <div>
+                            <mat-icon>done</mat-icon> debit card
+                        </div>
+                    </div>
+                    <div class="activeAccount-Container" >
+                        
+                           <div class="activeAccount-perMonth">
+                            6,90 €
+                            per month
+                           </div>
+                            <div class="activeAccount-icon">
+                                <mat-icon>Devices</mat-icon>
+                            </div>
+                        
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+
+        <div class="conatinerOne">
+            <div class=" ">
+                <h3>Desired PIN for your online banking</h3>
+            </div>
+            <div>
+                <mat-card class="relation-to-Usa form-container border border-1"
+                    style="width: 35.9rem">
+                    <p class="user-details-boxOne">
+                        After receiving your photoTAN activation letter, you can use this desired PIN to log into online banking. The PIN can consist of five numbers and/or letters. Please note that this is case-sensitive.
+                    </p>
+                    <form [formGroup]="productForm">
+                        <div class="input-fields-password">
+                            <mat-form-field>
+                                <input matInput formControlName="password" type="password" placeholder="Enter your pin" />
+                            </mat-form-field>
+                            <mat-error *ngIf="productForm.get('password')?.invalid">
+                                <span   *ngIf="productForm.get('password')?.errors?.['required']">Please enter your desired PIN.</span>
+                                <span   *ngIf="productForm.get('password')?.errors?.['pattern']">Please enter five numbers and/or letters: ascending, descending and identical series of numbers or letters as well as special characters are not permitted.</span>
+                              </mat-error>
+                        </div>
+                        <div class="input-fields-password">
+                            <mat-form-field>
+                                <input matInput formControlName="repeatPassword" type="password" placeholder="Repeat pin" />
+                            </mat-form-field>
+                            <mat-error *ngIf="productForm.get('repeatPassword')?.invalid">
+                                <span   *ngIf="productForm.get('repeatPassword')?.errors?.['required']">Please repeat your desired PIN.</span>
+                                <span   *ngIf="productForm.get('repeatPassword')?.errors?.['pattern']">Please check your PIN entry: Your entries are not identical.</span>
+                            </mat-error>
+                        </div>
+                        <div class="desiredPin">
+                            <p>Your desired PIN is only valid if you select the video authentication process.</p>
+                        </div>
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="conatinerOne">
+            <div class=" ">
+                <h3>contact details</h3>
+            </div>
+            <div>
+                <mat-card class="relation-to-Usa form-container border border-1"
+                    style="width: 35.9rem">
+                  <div class="user-details" > 
+                    <div class="user-details-boxOne">
+                        <h4>Reporting address</h4>
+                        <div >
+                            <p>name</p>
+                            <p>street</p>
+                            <p>counrty</p>
+                        </div>
+                    </div>
+                    <div class="user-details-boxTwo" >
+                        <h4>Contact</h4>
+                        <div >
+                            <p>email</p>
+                            <p>number</p>
+                        </div>
+                    </div>
+                  </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <div class="col-5 overView">
+        <!-- <app-overview></app-overview> -->
+    </div>
+</div>

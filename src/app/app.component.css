@@ -1,3 +1,8 @@
+* {
+  overflow-y: hidden; /* Hide vertical scrollbar */
+
+}
+
 .maianDivFor{
    margin-left: 50% !important;
 }
@@ -20,68 +25,29 @@
 }
 
 
-/* navBar */
-.myNavBar{
-   display: flex;
+
+ 
+ .navbar {
+  background-color: black;
+  display: flex;
+  justify-content: center;
 }
-#navbar{
-   justify-content: center;
-   align-content: center;
+
+.navbar-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
-nav {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
- }
- 
- ul#navbar {
-   list-style: none;
-   display: flex;
-   margin: 0;
-   padding: 0;
- }
- 
- ul#navbar li {
-   margin-right: 20px;
- }
- 
- ul#navbar li:last-child {
-   margin-right: 0;
- }
- 
- a {
-   text-decoration: none;
-   color: #333;
-   font-size: 18px;
-   margin-left: 50%;
- }
- 
- a.active {
-   font-weight: bold;
-   
- }
- 
- .stepper {
-   display: flex;
-   justify-content: center;
-   margin-top: 20px;
- }
- 
- .step {
-   width: 20px;
-   height: 20px;
-   border-radius: 50%;
-   background-color: #ddd;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-right: 10px;
-   font-size: 14px;
-   color: #333;
- }
- 
- .step.active {
-   background-color: #333;
-   color: #fff;
- }
- 
+
+.navbar-list li {
+  margin-right: 60px;
+}
+
+.navbar-list li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}

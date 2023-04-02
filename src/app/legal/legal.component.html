@@ -1,0 +1,219 @@
+<div class="row main-div">
+  <div class="col-7 legalform">
+    <div>
+      <h2>So much right must be</h2>
+      <p>Note on the scope of the deposit guarantee</p>
+    </div>
+    <form [formGroup]="legalForm">
+
+        <div class="relation-to-Usa form-container border border-1" style="width: 45.9rem">
+        <mat-card>
+          <p>
+            <mat-checkbox formControlName="transactions" (click)="transactionsCheckBox()"
+              >I have taken note of the information on the scope of deposit
+              protection and the protection of liabilities from securities
+              transactions.
+            </mat-checkbox>
+          </p>
+        </mat-card>
+        <div
+          style="color: red; padding-top: 0.2rem"
+          *ngIf="(legalForm.get('transactions')?.invalid && (legalForm.get('transactions')?.dirty || legalForm.get('transactions')?.touched)) || (!legalForm.get('transactions')?.value && submitted)">          
+          Please confirm that you have taken note of the information on the
+          scope of deposit protection.
+        </div>
+      </div>
+
+
+      <h5>Money Laundering Act / Private Use</h5>
+      <div class="relation-to-Usa form-container border border-1" style="width: 45.9rem">
+        <mat-card>
+          <p>
+            <mat-checkbox formControlName="moneyLaundring" (click)="moneyLaundringCheckBox()" >
+            I confirm that I am acting on my own account. The bank details
+            are kept in private assets.
+              </mat-checkbox
+            >
+          </p>
+        </mat-card>
+        <div
+          style="color: red; padding-top: 0.2rem"
+          *ngIf="(legalForm.get('moneyLaundring')?.invalid && (legalForm.get('moneyLaundring')?.dirty || legalForm.get('moneyLaundring')?.touched)) || (!legalForm.get('moneyLaundring')?.value && submitted)"> 
+          Please confirm that you have taken note of the information on the
+          scope of deposit protection.
+        </div>
+      </div>
+      <h5>Contract documents and SCHUFA information</h5>
+      <div
+        class="relation-to-Usa form-container border border-1"
+        style="width: 45.9rem"
+      >
+        <mat-card>
+          <mat-card-content>
+            <div class="d-flex">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-journal-check"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"
+                />
+                <path
+                  d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"
+                />
+                <path
+                  d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"
+                />
+              </svg>
+              <p class="mx-2">
+                Please download the contract for product selection and agree to
+                the SCHUFA clause
+              </p>
+            </div>
+            <hr />
+            <div>
+              <p>
+                Before concluding a contract, it is important to know what you
+                can expect from us, what services we offer as a bank and whether
+                you have a right of withdrawal. Therefore, for information and
+                personal filing, please download the information and conditions
+                related to your product selection.
+              </p>
+              <div>
+                <button
+                  mat-fab
+                  extended
+                  color="primary"
+                  (click)="isDownloadedTwo()"
+                  [disabled]="isDownloaded2"
+                  formControlName="isDownloaded">
+                  <mat-icon *ngIf="!isDownloaded2">download</mat-icon>
+                  <i
+                    class="fa-sharp fa-regular fa-download"
+                    *ngIf="!isDownloaded2"
+                  ></i>
+                  <span *ngIf="!isDownloaded2">Download documents</span>
+                  <span *ngIf="isDownloaded2">Download done</span>
+                </button>
+              </div>
+            <div style="color: red; padding-top: 0.2rem" *ngIf="(legalForm.get('isDownloaded')?.invalid && (legalForm.get('isDownloaded')?.dirty || legalForm.get('isDownloaded')?.touched)) || (!legalForm.get('isDownloaded')?.value && submitted)">
+              Due to legal regulations, we have to inform you about the contractual conditions for your product selection. To do this, please click on "Download documents".
+            </div>
+
+            </div>
+            <hr />
+            <div>
+              <h6>SCHUFA information</h6>
+              <p>
+                In order for us to be able to provide you with your desired
+                product, a credit check is required. For this purpose, we obtain
+                information from SCHUFA.
+              </p>
+              <p>
+                <mat-checkbox formControlName="schufa" (click)="schufaCheckBox()"
+                  >I have taken note of the information on the scope of deposit
+                  protection and the protection of liabilities from securities
+                  transactions.</mat-checkbox
+                >
+              </p>
+            </div>
+            <div
+              style="color: red; padding-top: 0.2rem"
+              *ngIf="(legalForm.get('schufa')?.invalid && (legalForm.get('schufa')?.dirty || legalForm.get('schufa')?.touched)) || (!legalForm.get('schufa')?.value && submitted)">
+              Please confirm that you have taken note of the information on the
+              scope of deposit protection.
+            </div>
+            <hr />
+            <div>
+              <p>
+                For transparency and comparability of payment account services,
+                you will receive fee information about the services associated
+                with your account and the fees that may be incurred. Please save
+                the fee information on a durable medium so that you can also
+                understand the fees at a later point in time.
+              </p>
+            </div>
+            <div>
+              <div>
+                <button
+                  mat-fab
+                  extended
+                  color="primary"
+                  (click)="downloadFile()"
+                  [disabled]="isDownloaded"
+                  formControlName="isDownloaded2"
+                >
+                  <mat-icon *ngIf="!isDownloaded">download</mat-icon>
+                  <i
+                    class="fa-sharp fa-regular fa-download"
+                    *ngIf="!isDownloaded"
+                  ></i>
+                  <span *ngIf="!isDownloaded">Free Information</span>
+                  <span *ngIf="isDownloaded">Download done</span>
+                </button>
+              </div>
+                <div
+                style="color: red; padding-top: 0.2rem"
+                *ngIf="(legalForm.get('isDownloaded2')?.invalid && (legalForm.get('isDownloaded2')?.dirty || legalForm.get('isDownloaded2')?.touched)) || (!legalForm.get('isDownloaded2')?.value && submitted)">
+                Please download the fee information for your account
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        
+      </div>
+      <div
+        class="relation-to-Usa form-container border border-1"
+        style="width: 45.9rem"
+      >
+        <h5>Custody Fee Agreement</h5>
+        <div
+          class="relation-to-Usa form-container border border-1"
+          style="width: 45.9rem"
+        >
+          <mat-card>
+            <p>
+              <mat-checkbox formControlName="custody" (click)="custodyCheckBox()"
+                >You wish to keep funds in your Personal Account. In return for
+                the safekeeping, the bank will receive a credit-dependent
+                safekeeping fee for each account in accordance with the list of
+                prices and services and the special conditions for safekeeping
+                of credit balances . Up to an amount of EUR 50,000 per account,
+                no fee has to be paid. Credit that exceeds this exemption amount
+                will be debited with the custody fee.</mat-checkbox
+              >
+            </p>
+          </mat-card>
+        </div>
+        <div
+          style="color: red; padding-top: 0.2rem"
+          *ngIf="(legalForm.get('custody')?.invalid && (legalForm.get('custody')?.dirty || legalForm.get('custody')?.touched)) || (!legalForm.get('custody')?.value && submitted)">         
+           Please confirm that you have taken note of the information on the
+        </div>
+        <div class="row onlyForMargin">
+          <div class="form-group d-flex justify-content-center px-4">
+            <button type="button" class="btn btn-danger" (click)="onRetun()">
+              Return
+            </button>
+            <button
+              type="submit"
+              class="btn btn-success me-2 mx-5"
+              (click)="movingtoNextFunction()"
+            >
+              Futher
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- overView  -->
+  <div class="col-5 adjustOfOverview" style="width: 27.9rem">
+    <app-overview></app-overview>
+  </div>
+</div>

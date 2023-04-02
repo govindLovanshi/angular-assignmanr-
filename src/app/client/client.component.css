@@ -3,7 +3,8 @@
 }
 
 .real-card{
-    margin-left: 12em;
+    margin-left: 5em;
+    margin-bottom: 2em;
     margin-top: 5em; 
 }
 
@@ -16,6 +17,10 @@
     margin-bottom: 1em;
 }
 
-.real-card{
-    margin-bottom: 2em;
+.overView-card{
+    margin-right: 20em;
+}
+
+.overView{
+    margin-right: 5em;
 }
