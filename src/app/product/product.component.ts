@@ -4,6 +4,7 @@ import {DataServiceService} from '../service/data-service.service'
 import {StringDataService} from '../service/string-data.service'
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import {ProductService} from '../api-service/product.service'
 
 
 
@@ -17,20 +18,6 @@ export class ProductComponent implements OnInit {
   @Output() setFormStateEvent : EventEmitter<any> = new EventEmitter<void>();
 
   title = 'registration';
-  registerForm!: FormGroup;
-
-  productForm! : FormGroup;
-  netIncomeMonthly :  any = ""
-  privateHealth :  string = ""
-  numberOfDependent :  string = ""
-  MaintanceObligation :  string = ""
-  positionProfession :  string = ""
-  
-  submitted : boolean = false;
-  
-
-  constructor( private _fb : FormBuilder  , private dataService: DataServiceService , private router : Router ){}
-
 
   sercice = 'Included services at a glance';
   cardBoz1s = ['Online and telephone banking' , 'Digital mailbox in eSafe' , 'Deutsche Bank mobile app' , 'debit card']
@@ -62,6 +49,24 @@ export class ProductComponent implements OnInit {
   masterCardYear = '39,00';
   masterCardGold ='82,00';
   mastercardTravel = '94,00'
+
+
+  registerForm!: FormGroup;
+
+  productForm! : FormGroup;
+  netIncomeMonthly :  string = ""
+  privateHealth :  string = ""
+  numberOfDependent :  string = ""
+  MaintanceObligation :  string = ""
+  positionProfession :  string = ""
+  
+  submitted : boolean = false;
+  
+
+  constructor( private _fb : FormBuilder  , private dataService: DataServiceService , private router : Router , private productService : ProductService  ){}
+
+
+
 
   hide!: boolean;
   hidden2 : boolean = false;
@@ -98,7 +103,11 @@ export class ProductComponent implements OnInit {
     };
     const json = JSON.stringify(dataToStore);
     sessionStorage.setItem('productForm', json);
-    // sessionStorage.getItem('productForm');
+
+    // this.productService.userProduct(json).subscribe((result)=>{
+    //   console.log("resulr=====> " , result)
+    // })
+
     console.log("======data is stored in session storage ======>" ,  json)
   }
 
@@ -128,6 +137,10 @@ export class ProductComponent implements OnInit {
       console.log("===== inside the on productForm")
         return ;
     }
+    this.productService.userProduct(this.productForm.value).subscribe((result)=>{
+      console.log("resulr=====> " , result)
+    })
+    
       this.saveFormToSessionStorage()
       this.router.navigate(['personal']);
       

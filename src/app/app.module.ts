@@ -33,8 +33,8 @@ import { AuthService } from './auth.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-
+import { HttpClientModule, HttpClient , HttpHeaders } from '@angular/common/http';
+import {DataService} from './_helper/data.service'
 
 @NgModule({
   declarations: [
@@ -65,6 +65,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     MatIconModule,
     MatAutocompleteModule,
     HttpClientModule,  
+    
   ],
   providers: [DataServiceService , StringDataService , CourseGuardServices , AuthService],
   bootstrap: [AppComponent],

@@ -1,0 +1,45 @@
+{
+  "clientForm": [
+    {
+      "accountType": "individualAccount",
+      "alreadyRegister": "ands",
+      "id": 1
+    }
+  ],
+  "productForm": [
+    {
+      "netIncomeMonthly": "11",
+      "privateHealth": "34",
+      "numberOfDependent": "65",
+      "MaintanceObligation": "989",
+      "positionProfession": "5767",
+      "id": 1
+    }
+  ],
+  "personalForm": [
+    {
+      "firstName": "govind",
+      "lastName": "lowanshi",
+      "dateOfBirth": "1996-01-11",
+      "placeOfBirth": "indore",
+      "country": "india",
+      "plz": "410203",
+      "city": "khopoli",
+      "phoneNumber": "8087746131",
+      "streetAndNumber": "laxmi nagar",
+      "email": "govind@gmail.com",
+      "id": 1
+    }
+  ],
+  "legalForm": [
+    {
+      "transactions": true,
+      "moneyLaundering": true,
+      "schufa": true,
+      "custody": true,
+      "isDownloaded": true,
+      "isDownloaded2": true,
+      "id": 1
+    }
+  ]
+}

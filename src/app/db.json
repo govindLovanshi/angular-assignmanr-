@@ -1,0 +1,127 @@
+{
+  "clientForm": [
+    {
+      "accountType": "individualAccount",
+      "alreadyRegister": "ands",
+      "id": 1
+    },
+    {
+      "customer": "exiting",
+      "alreadyRegister": "andsf",
+      "id": 2
+    },
+    {
+      "customer": "createNew",
+      "alreadyRegister": "ands",
+      "id": 3
+    }
+  ],
+  "productForm": [
+    {
+      "netIncomeMonthly": "11",
+      "privateHealth": "34",
+      "numberOfDependent": "65",
+      "MaintanceObligation": "989",
+      "positionProfession": "5767",
+      "id": 1
+    },
+    {
+      "netIncomeMonthly": "11",
+      "privateHealth": "34",
+      "numberOfDependent": "65",
+      "MaintanceObligation": "989",
+      "positionProfession": "5767",
+      "id": 2
+    },
+    {
+      "netIncomeMonthly": "2455",
+      "privateHealth": "6478",
+      "numberOfDependent": "74748",
+      "MaintanceObligation": "67579",
+      "positionProfession": "6675848",
+      "id": 3
+    },
+    {
+      "netIncomeMonthly": "2455",
+      "privateHealth": "6478",
+      "numberOfDependent": "74748",
+      "MaintanceObligation": "67579",
+      "positionProfession": "6675848",
+      "id": 4
+    }
+  ],
+  "personalForm": [
+    {
+      "firstName": "govind",
+      "lastName": "lowanshi",
+      "dateOfBirth": "1996-01-11",
+      "placeOfBirth": "indore",
+      "country": "india",
+      "plz": "410203",
+      "city": "khopoli",
+      "phoneNumber": "8087746131",
+      "streetAndNumber": "laxmi nagar",
+      "email": "govind@gmail.com",
+      "id": 1
+    },
+   
+    {
+      "firstName": "govind",
+      "lastName": "lowanshi",
+      "dateOfBirth": "1996-11-11",
+      "placeOfBirth": "dbwiubvwv",
+      "streetAndNumber": "skjdckhbcd 11",
+      "plz": "12345",
+      "city": "chbdsnc",
+      "phoneNumber": "+912345678901",
+      "email": "gogo@gmail.com",
+      "materialStatus": "Married",
+      "country": "Africa",
+      "id": 4
+    },
+   
+    {
+      "firstName": "govind",
+      "lastName": "lowanshi",
+      "dateOfBirth": "1996-11-11",
+      "placeOfBirth": "dbwiubvwv",
+      "streetAndNumber": "chdbcw 11",
+      "plz": "12345",
+      "city": "chbdsnc",
+      "phoneNumber": "+912345678901",
+      "email": "gogo@gmail.com",
+      "materialStatus": "Married",
+      "country": "Africa",
+      "id": 9
+    }
+  ],
+  "legalForm": [
+    {
+      "transactions": true,
+      "moneyLaundering": true,
+      "schufa": true,
+      "custody": true,
+      "isDownloaded": true,
+      "isDownloaded2": true,
+      "id": 1
+    },
+    {
+      "transactions": true,
+      "moneyLaundring": true,
+      "schufa": true,
+      "custody": true,
+      "isDownloaded": false,
+      "isDownloaded2": false,
+      "id": 2
+    },
+    {
+      "transactions": true,
+      "moneyLaundring": true,
+      "schufa": true,
+      "custody": true,
+      "isDownloaded": false,
+      "isDownloaded2": false,
+      "id": 3
+    }
+  ]
+}

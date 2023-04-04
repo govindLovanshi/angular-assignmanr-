@@ -81,7 +81,7 @@
                   <mat-error *ngIf="clientForm.get('customer')?.valid && clientForm.get('alreadyRegister')?.invalid">
                     <span *ngIf="clientForm.get('alreadyRegister')?.errors?.['required'] && fresherAccount!='joinAccount' ">
                       
-                        Please select one of the options**
+                        <!-- Please select one of the options** -->
                       
                     </span>
                   </mat-error>
@@ -119,7 +119,7 @@
 
                     <mat-error *ngIf="clientForm.get('customer')?.valid && clientForm.get('alreadyRegister')?.valid">
                       <span *ngIf=" customer=='createNew' && fresherAccount=='individualAccount'  && (checkingFresher == 'ands' || checkingFresher == 'on') ">
-                          Please select one from this options***
+                          <!-- Please select one from this options*** -->
                       </span>
                     </mat-error>
   
@@ -198,7 +198,7 @@
                   <mat-error *ngIf="clientForm.get('customer')?.valid ">
                     <span *ngIf="clientForm.get('alreadyRegister')?.errors?.['required']">
                       
-                        Please select one of the options****
+                        <!-- Please select one of the options**** -->
                       
                     </span>
                   </mat-error>

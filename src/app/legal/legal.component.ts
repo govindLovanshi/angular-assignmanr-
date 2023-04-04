@@ -1,6 +1,11 @@
 import { Component , OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import{UserService} from '../_helper/user.service';
+import {User} from '../_helper/user_interface'
+import { HttpClient } from '@angular/common/http';
+import { DBOperation } from '../_helper/db-operation';
+import {LegalService} from '../api-service/legal.service'
 
 @Component({
   selector: 'app-legal',
@@ -21,7 +26,9 @@ export class LegalComponent implements OnInit {
   
   submitted = false;   // Add this variable to track form submission;
  
-  constructor( private _fb : FormBuilder , private router : Router){}
+  constructor( private _fb : FormBuilder , private router : Router ,  private _userService : UserService , private _httpService : HttpClient , private mylegalService : LegalService ){}
+
+  dbops : DBOperation;
 
   ngOnInit(): void {
      this.setFormState()
@@ -52,6 +59,11 @@ export class LegalComponent implements OnInit {
     };
     const json = JSON.stringify(dataToStore);
     sessionStorage.setItem('legalForm', json);
+
+    // this.mylegalService.userLegal(json).subscribe((result)=>{
+    //   console.log(result)
+    // })
+    
     console.log("======data is stored in session storage ======>" ,  json)
   }
 
@@ -75,24 +87,20 @@ export class LegalComponent implements OnInit {
   movingtoNextFunction(){
     this.submitted = true; // Set submitted to true when form is submitted
     
-    console.log("transactions" , this.transactions);
-    console.log("moneyLaundring" , this.moneyLaundring);
-    console.log("schufa" , this.schufa);
-    console.log("custody" , this.custody);
-    console.log("downloadOne" , this.isDownloaded);
-    console.log("downlaodTwo" , this.isDownloaded2);
-
-    // if(this.legalForm.invalid ){
-    //   console.log("=========this.legalForm.invalid==========> " , this.legalForm.invalid)
-    //     return ;
-    // }
+   
 
     if(this.transactions == false && this.moneyLaundring == false && this.schufa == false && this.custody == false && this.isDownloaded == false && this.isDownloaded2 == false ){
       console.log("=========this.legalForm.invalid==========> " , this.legalForm.invalid)
         return ;
     }
 
+    this.mylegalService.userLegal(this.legalForm.value).subscribe((result)=>{
+      console.log("data is stoed in json server")
+      console.log(result)
+    })
+
     this.saveFormToSessionStorage()
+   
     this.router.navigate(['thankyou']);
     
   }

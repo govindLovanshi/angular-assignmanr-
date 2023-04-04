@@ -32,29 +32,44 @@
               <span *ngIf="personalForm.get('lastName')?.errors?.['min']">Last Name should have atlest 3 characters</span>
             </mat-error>
           </mat-form-field>
-          
-          <!-- <div>
-            <mat-label>Material Status</mat-label>
-          </div>
-          <mat-form-field appearance="outline">
-            <select formControlName="materialStatus" matInput placeholder="Material Status">
-              <option *ngFor="let status of arrayMaterialStatus" [value]="status">{{status}}</option>
-            </select>
-            <mat-error *ngIf="personalForm.get('materialStatus')?.invalid">
-              <span *ngIf="personalForm.get('materialStatus')?.errors?.['required']">Material Status is required</span>
-            </mat-error>
-          </mat-form-field> -->
 
-          <div>
+          <!-- <div>
             <mat-label>Material Status</mat-label>
           </div>
           <mat-form-field appearance="outline">
             <input matInput formControlName="materialStatus" placeholder="Material Status" [matAutocomplete]="auto">
             <mat-autocomplete #auto>
-              <mat-option *ngFor="let status of arrayMaterialStatus" [value]="status">{{status}}</mat-option>
+              <mat-option *ngFor="let marriageStatus of ['Single' , 'Married' , 'available' , 'widowed' , 'register civil patnership']" [value]="marriageStatus">{{marriageStatus}}</mat-option>
             </mat-autocomplete>
             <mat-error *ngIf="personalForm.get('materialStatus')?.invalid">
               <span *ngIf="personalForm.get('materialStatus')?.errors?.['required']">Material Status is required</span>
+            </mat-error>
+          </mat-form-field> -->
+
+          <div class="form-group col">
+            <label>Material Status</label>
+            <select class="form-control" formControlName="materialStatus"  placeholder="Material Status" >
+              <option value="Single">Single</option>
+              <option value="Married">Married</option>
+              <option value="available">available</option>
+              <option value="widowed">widowed</option>
+              <option value="register civil patnership">register civil patnership</option>
+            </select>
+            <div  *ngIf="personalForm.get('materialStatus')?.invalid && personalForm.get('materialStatus')?.touched">
+              <span *ngIf="personalForm.get('materialStatus')?.errors?.['required']" >Material Status is required</span>
+            </div>
+          </div>
+
+          <div>
+            <mat-label>Country</mat-label>
+          </div>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="country" placeholder="country" [matAutocomplete]="auto">
+            <mat-autocomplete #auto>
+              <mat-option *ngFor="let status of arrayOfCountries" [value]="status">{{status}}</mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="personalForm.get('country')?.invalid">
+              <span *ngIf="personalForm.get('country')?.errors?.['required']">Material Status is required</span>
             </mat-error>
           </mat-form-field>
        
@@ -84,20 +99,21 @@
             </mat-error>
           </mat-form-field>
           
-          <div>
+          <!-- <div>
             <mat-label>Country</mat-label>
           </div>
           <mat-form-field appearance="outline">
             <input matInput formControlName="country" placeholder="Country" [matAutocomplete]="auto">
             <mat-autocomplete #auto>
-              <mat-option *ngFor="let country of countries" [value]="country" >{{country}}</mat-option>
+              <mat-option *ngFor="let country1 of arrayOfCountries" [value]="country" >{{country1}}</mat-option>
             </mat-autocomplete>
             <mat-error *ngIf="personalForm.get('country')?.invalid">
               <span *ngIf="personalForm.get('country')?.errors?.['required']">Country is required</span>
             </mat-error>
-          </mat-form-field>
-       
-          <!-- <div>
+          </mat-form-field> -->
+          
+          <!--
+             <div>
             <mat-label>Country</mat-label>
           </div>
           <mat-form-field appearance="outline">
@@ -117,7 +133,6 @@
             <input matInput type="text"  formControlName="country" placeholder="Country">
             <mat-error *ngIf="personalForm.get('country')?.invalid">
               <span *ngIf="personalForm.get('country')?.errors?.['required']">Country is required</span>
-              <span *ngIf="personalForm.get('country')?.errors?.['min']">Country should have atlest 3 characters</span>
             </mat-error>
           </mat-form-field> 
         -->

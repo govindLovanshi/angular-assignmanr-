@@ -2,6 +2,7 @@ import { Component , OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup , Validators , FormControl ,FormGroupName  } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { ClientService } from '../api-service/client.service';
 
 
 @Component({
@@ -37,7 +38,7 @@ export class ClientComponent implements OnInit {
   noFresher : any;
   radioClicked: boolean = true;
 
-constructor(private router : Router , private _fb : FormBuilder ){}
+constructor(private router : Router , private _fb : FormBuilder , private clientService : ClientService ){}
 
   ngOnInit(): void {
 
@@ -61,6 +62,11 @@ constructor(private router : Router , private _fb : FormBuilder ){}
     };
     const json = JSON.stringify(dataToStore);
     sessionStorage.setItem('clientForm', json);
+
+    // this.clientService.userClient(json).subscribe((result)=>{
+    //   console.log("result====>" ,  result)
+    // })
+
     console.log("======data is stored in session storage ======>" ,  json)
   }
 
@@ -77,23 +83,33 @@ constructor(private router : Router , private _fb : FormBuilder ){}
   }
 
  // next page 
- moveTonextPage(){
-  console.log(this.clientForm);
-
+ async moveTonextPage(){
+    console.log("=================moveTonextPage==============>" , this.clientForm.value);
+  let data = this.clientForm.value
   this.submitted = true
   
-  if(this.clientForm.invalid ){
+    if(this.clientForm.invalid ){
       return ;
     }
-  this.saveFormToSessionStorage()
-  this.router.navigate(['product']);
+    else{
+      this.clientService.userClient(data).subscribe((result) => {
+        console.log("data should send in json Server====>", result);
+     })
+      this.saveFormToSessionStorage()
+      this.router.navigate(['product']);
+    }
+    (error) => {
+      console.log("Error in sending data to JSON Server====>", error);
+      }
+
+    
+  
 }
 
   async restartFun(event:any){
     if(this.customer && this.customer !== event.target.value) {
       await this.clientForm.reset();
-      // await this.clientForm.setValue({'customer': event.target.value})
-      // await this.clientForm.setValue({'alreadyRegister': ""})
+     
     } 
     this.customer = event.target.value
     console.log("this.clientForm",this.clientForm);
