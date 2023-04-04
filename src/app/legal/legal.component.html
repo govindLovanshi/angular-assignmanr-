@@ -76,6 +76,7 @@
               </p>
             </div>
             <hr />
+
             <div>
               <p>
                 Before concluding a contract, it is important to know what you
@@ -89,23 +90,23 @@
                   mat-fab
                   extended
                   color="primary"
-                  (click)="isDownloadedTwo()"
-                  [disabled]="isDownloaded2"
+                  (click)="downloadFile()"
+                  [disabled]="isDownloaded"
                   formControlName="isDownloaded">
-                  <mat-icon *ngIf="!isDownloaded2">download</mat-icon>
+                  <mat-icon *ngIf="!isDownloaded">download</mat-icon>
                   <i
                     class="fa-sharp fa-regular fa-download"
-                    *ngIf="!isDownloaded2"
+                    *ngIf="!isDownloaded"
                   ></i>
-                  <span *ngIf="!isDownloaded2">Download documents</span>
-                  <span *ngIf="isDownloaded2">Download done</span>
+                  <span *ngIf="!isDownloaded">Download documents</span>
+                  <span *ngIf="isDownloaded">Download done</span>
                 </button>
               </div>
-            <div style="color: red; padding-top: 0.2rem" *ngIf="(legalForm.get('isDownloaded')?.invalid && (legalForm.get('isDownloaded')?.dirty || legalForm.get('isDownloaded')?.touched)) || (!legalForm.get('isDownloaded')?.value && submitted)">
-              Due to legal regulations, we have to inform you about the contractual conditions for your product selection. To do this, please click on "Download documents".
+              <div style="color: red; padding-top: 0.2rem" *ngIf="((legalForm.get('isDownloaded')?.invalid && (legalForm.get('isDownloaded')?.dirty || legalForm.get('isDownloaded')?.touched)) || (!legalForm.get('isDownloaded')?.value && submitted)) && !isDownloaded">
+                Due to legal regulations, we have to inform you about the contractual conditions for your product selection. To do this, please click on "Download documents".
+              </div>
             </div>
-
-            </div>
+            
             <hr />
             <div>
               <h6>SCHUFA information</h6>
@@ -138,29 +139,51 @@
                 understand the fees at a later point in time.
               </p>
             </div>
-            <div>
+            <!-- <div>
               <div>
                 <button
                   mat-fab
                   extended
                   color="primary"
-                  (click)="downloadFile()"
-                  [disabled]="isDownloaded"
+                  (click)="isDownloadedTwo()"
+                  [disabled]="isDownloaded2"
                   formControlName="isDownloaded2"
                 >
-                  <mat-icon *ngIf="!isDownloaded">download</mat-icon>
+                  <mat-icon *ngIf="!isDownloaded2">download</mat-icon>
                   <i
                     class="fa-sharp fa-regular fa-download"
-                    *ngIf="!isDownloaded"
+                    *ngIf="!isDownloaded2"
                   ></i>
-                  <span *ngIf="!isDownloaded">Free Information</span>
-                  <span *ngIf="isDownloaded">Download done</span>
+                  <span *ngIf="!isDownloaded2">Free Information</span>
+                  <span *ngIf="isDownloaded2">Download done</span>
                 </button>
               </div>
                 <div
                 style="color: red; padding-top: 0.2rem"
                 *ngIf="(legalForm.get('isDownloaded2')?.invalid && (legalForm.get('isDownloaded2')?.dirty || legalForm.get('isDownloaded2')?.touched)) || (!legalForm.get('isDownloaded2')?.value && submitted)">
                 Please download the fee information for your account
+              </div>
+            </div> -->
+            <div>
+              <div>
+                <button
+                  mat-fab
+                  extended
+                  color="primary"
+                  (click)="isDownloadedTwo()"
+                  [disabled]="isDownloaded2"
+                  formControlName="isDownloaded2">
+                  <mat-icon *ngIf="!isDownloaded2">download</mat-icon>
+                  <i
+                    class="fa-sharp fa-regular fa-download"
+                    *ngIf="!isDownloaded2"
+                  ></i>
+                  <span *ngIf="!isDownloaded2">Download documents</span>
+                  <span *ngIf="isDownloaded2">Download done</span>
+                </button>
+              </div>
+              <div style="color: red; padding-top: 0.2rem" *ngIf="((legalForm.get('isDownloaded2')?.invalid && (legalForm.get('isDownloaded2')?.dirty || legalForm.get('isDownloaded2')?.touched)) || (!legalForm.get('isDownloaded2')?.value && submitted)) && !isDownloaded2">
+                Due to legal regulations, we have to inform you about the contractual conditions for your product selection. To do this, please click on "Download documents".
               </div>
             </div>
           </mat-card-content>

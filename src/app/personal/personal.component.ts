@@ -79,7 +79,6 @@ export class PersonalComponent implements OnInit {
       city : ['', [Validators.required, Validators.min(4)]],
       phoneNumber : ['', [Validators.required, Validators.pattern(/^(\+91)[1-9][0-9]{9}$/)]],
       email : ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
-
       materialStatus :  ['' ,Validators.required ],
       country :  ['' ,Validators.required ],
 
@@ -135,6 +134,8 @@ export class PersonalComponent implements OnInit {
   }
 
   movingtoNextFunction(){
+    
+    this.submitted = true
 
     if(this.personalForm.invalid ){
         return ;

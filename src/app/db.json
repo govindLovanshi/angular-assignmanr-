@@ -14,6 +14,26 @@
       "customer": "createNew",
       "alreadyRegister": "ands",
       "id": 3
+    },
+    {
+      "customer": "createNew",
+      "alreadyRegister": "ands",
+      "id": 4
+    },
+    {
+      "customer": "createNew",
+      "alreadyRegister": "ands",
+      "id": 5
+    },
+    {
+      "customer": "exiting",
+      "alreadyRegister": "andsf",
+      "id": 6
+    },
+    {
+      "customer": "exiting",
+      "alreadyRegister": "andsf",
+      "id": 7
     }
   ],
   "productForm": [
@@ -48,6 +68,22 @@
       "MaintanceObligation": "67579",
       "positionProfession": "6675848",
       "id": 4
+    },
+    {
+      "netIncomeMonthly": "4566",
+      "privateHealth": "788",
+      "numberOfDependent": "980",
+      "MaintanceObligation": "675",
+      "positionProfession": "456",
+      "id": 5
+    },
+    {
+      "netIncomeMonthly": "678",
+      "privateHealth": "876",
+      "numberOfDependent": "545",
+      "MaintanceObligation": "098",
+      "positionProfession": "234",
+      "id": 6
     }
   ],
   "personalForm": [
@@ -64,7 +100,6 @@
       "email": "govind@gmail.com",
       "id": 1
     },
-   
     {
       "firstName": "govind",
       "lastName": "lowanshi",
@@ -79,7 +114,6 @@
       "country": "Africa",
       "id": 4
     },
-   
     {
       "firstName": "govind",
       "lastName": "lowanshi",
@@ -93,6 +127,112 @@
       "materialStatus": "Married",
       "country": "Africa",
       "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "id": 17
+    },
+    {
+      "id": 18
+    },
+    {
+      "id": 19
+    },
+    {
+      "id": 20
+    },
+    {
+      "id": 21
+    },
+    {
+      "id": 22
+    },
+    {
+      "id": 23
+    },
+    {
+      "id": 24
+    },
+    {
+      "id": 25
+    },
+    {
+      "id": 26
+    },
+    {
+      "id": 27
+    },
+    {
+      "id": 28
+    },
+    {
+      "id": 29
+    },
+    {
+      "id": 30
+    },
+    {
+      "id": 31
+    },
+    {
+      "id": 32
+    },
+    {
+      "firstName": "govind",
+      "lastName": "lowanshi",
+      "dateOfBirth": "1996-11-11",
+      "placeOfBirth": "dcjndwucn",
+      "streetAndNumber": "sdjncdsn 11",
+      "plz": "12345",
+      "city": "dsjndsnv",
+      "phoneNumber": "+912345678907",
+      "email": "gogo@gmail.com",
+      "materialStatus": "available",
+      "country": "Canada",
+      "id": 33
+    },
+    {
+      "id": 34
+    },
+    {
+      "id": 35
+    },
+    {
+      "id": 36
+    },
+    {
+      "firstName": "govind",
+      "lastName": "lowanshi",
+      "dateOfBirth": "1996-11-11",
+      "placeOfBirth": "ch s ",
+      "streetAndNumber": "sdh 11",
+      "plz": "12345",
+      "city": "sdjcnsdnv",
+      "phoneNumber": "+912987654322",
+      "email": "govind@gmail.com",
+      "materialStatus": "available",
+      "country": "China",
+      "id": 37
     }
   ],
   "legalForm": [
@@ -122,6 +262,24 @@
       "isDownloaded": false,
       "isDownloaded2": false,
       "id": 3
+    },
+    {
+      "transactions": true,
+      "moneyLaundring": true,
+      "schufa": true,
+      "custody": true,
+      "isDownloaded": false,
+      "isDownloaded2": false,
+      "id": 4
+    },
+    {
+      "transactions": true,
+      "moneyLaundring": true,
+      "schufa": true,
+      "custody": true,
+      "isDownloaded": false,
+      "isDownloaded2": false,
+      "id": 5
     }
   ]
 }

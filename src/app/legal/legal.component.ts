@@ -59,10 +59,6 @@ export class LegalComponent implements OnInit {
     };
     const json = JSON.stringify(dataToStore);
     sessionStorage.setItem('legalForm', json);
-
-    // this.mylegalService.userLegal(json).subscribe((result)=>{
-    //   console.log(result)
-    // })
     
     console.log("======data is stored in session storage ======>" ,  json)
   }
@@ -86,8 +82,6 @@ export class LegalComponent implements OnInit {
 
   movingtoNextFunction(){
     this.submitted = true; // Set submitted to true when form is submitted
-    
-   
 
     if(this.transactions == false && this.moneyLaundring == false && this.schufa == false && this.custody == false && this.isDownloaded == false && this.isDownloaded2 == false ){
       console.log("=========this.legalForm.invalid==========> " , this.legalForm.invalid)

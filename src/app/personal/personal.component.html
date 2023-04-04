@@ -55,8 +55,8 @@
               <option value="widowed">widowed</option>
               <option value="register civil patnership">register civil patnership</option>
             </select>
-            <div  *ngIf="personalForm.get('materialStatus')?.invalid && personalForm.get('materialStatus')?.touched">
-              <span *ngIf="personalForm.get('materialStatus')?.errors?.['required']" >Material Status is required</span>
+            <div  *ngIf="submitted && personalForm.get('materialStatus')?.invalid">
+              <small *ngIf="personalForm.get('materialStatus')?.errors?.['required']" class="Material-Status" >Material Status is required </small>
             </div>
           </div>
 
